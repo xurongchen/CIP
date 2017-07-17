@@ -13,11 +13,15 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    adminoper.cpp
+    adminoper.cpp \
+    test.cpp \
+    dboperation.cpp
 
 HEADERS  += mainwindow.h \
     dbconnect.h \
-    adminoper.h
+    adminoper.h \
+    test.h \
+    dboperation.h
 
 FORMS    += mainwindow.ui \
     adminoper.ui
