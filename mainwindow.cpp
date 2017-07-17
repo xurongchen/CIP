@@ -68,11 +68,6 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_PBClose_clicked()
-{
-    this->close();
-}
-
 void MainWindow::on_PBMin_clicked()
 {
     this->showMinimized();
@@ -98,4 +93,23 @@ void MainWindow::on_PBLogin_clicked()
             QMessageBox::information(0,"GoodJob",
                         "Login is OK!",QMessageBox::Ok);
     }
+}
+
+bool MainWindow::closeWidget()
+{
+   //界面动画，改变透明度的方式消失1 - 0渐变
+   QPropertyAnimation *animation = new QPropertyAnimation(this, "windowOpacity");
+   animation->setDuration(550);
+   animation->setStartValue(1);
+   animation->setEndValue(0);
+   animation->start();
+   connect(animation, SIGNAL(finished()), this, SLOT(close()));
+
+   return true;
+}
+
+void MainWindow::closeEvent(QCloseEvent *)
+{
+    //退出系统
+    QApplication::quit();
 }

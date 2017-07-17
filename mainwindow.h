@@ -15,13 +15,15 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    void closeEvent(QCloseEvent *);
 
 private slots:
-    void on_PBClose_clicked();
 
     void on_PBMin_clicked();
 
     void on_PBLogin_clicked();
+
+    bool closeWidget();
 
 private:
     int flag;
