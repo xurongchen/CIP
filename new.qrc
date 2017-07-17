@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>m_min.png</file>
+        <file>road.png</file>
+        <file>x_close.png</file>
+    </qresource>
+</RCC>
