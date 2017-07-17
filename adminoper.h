@@ -24,6 +24,10 @@ private slots:
 
     void on_PBReturn_clicked();
 
+    void on_PBAdd_clicked();
+
+    void on_pushButton_clicked();
+
 private:
     Ui::AdminOper *ui;
     int flag, flag2;

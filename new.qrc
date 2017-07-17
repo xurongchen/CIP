@@ -4,5 +4,8 @@
         <file>road.png</file>
         <file>x_close.png</file>
         <file>return.png</file>
+        <file>road.jpg</file>
+        <file>adm.png</file>
+        <file>road_white.png</file>
     </qresource>
 </RCC>

@@ -12,6 +12,8 @@ AdminOper::AdminOper(QWidget *parent) :
     ui(new Ui::AdminOper)
 {
     ui->setupUi(this);
+    ui->tabWidget->setStyleSheet("QTabWidget:pane {border-top:0px solid #e8f3f9;background:  transparent; }"); //设置tab背景透明
+    ui->tabWidget->findChildren<QTabBar*>().at(0)->hide(); //tab标题栏隐藏
     flag = 0;
     flag2 = 0;
     this->setFixedSize(720,445); //设置固定大小
@@ -94,4 +96,14 @@ void AdminOper::on_PBReturn_clicked()
 {
     flag2 = 1;
     this->close();
+}
+
+void AdminOper::on_PBAdd_clicked()
+{
+    ui->tabWidget->setCurrentIndex(0);
+}
+
+void AdminOper::on_pushButton_clicked()
+{
+    ui->tabWidget->setCurrentIndex(1);
 }
