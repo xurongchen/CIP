@@ -21,8 +21,7 @@ static bool createConnection()
     query.exec("create table UserList (Id int primary key, "
                "Name varchar(32),"
                "Password varchar(32),"
-               "Role int,"
-               "Relatedid int)");
+               "Role int)");
      /*
        role:1 admin
             2 manager
@@ -54,7 +53,7 @@ static bool createConnection()
                "RecipientId int,"
                "Content varchar(256))");
 
-    query.exec("insert into UserList values(0,'admin','hardpswd',1,0)");
+    query.exec("insert into UserList values(0,'admin','hardpswd',1)");
 
     /*
     query.exec("insert into student values(0, 'LiMing')");
