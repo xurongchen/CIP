@@ -1,10 +1,12 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "dbconnect.h"
+#include "adminoper.h"
 #include <QString>
 #include <string>
 #include <QBitmap>
 #include <QPainter>
+#include <QDebug>
 #include <QPropertyAnimation>
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -90,8 +92,15 @@ void MainWindow::on_PBLogin_clicked()
             QMessageBox::critical(0, "ERROR",
                         "Wrong Password!", QMessageBox::Cancel);
         else
+        {
             QMessageBox::information(0,"GoodJob",
                         "Login is OK!",QMessageBox::Ok);
+            this->hide();
+            AdminOper adminOper;
+            adminOper.exec();
+            qDebug() << "abcd";
+            this->show();
+        }
     }
 }
 

@@ -20,7 +20,7 @@
    <widget class="QPushButton" name="PBClose">
     <property name="geometry">
      <rect>
-      <x>670</x>
+      <x>680</x>
       <y>10</y>
       <width>31</width>
       <height>31</height>
@@ -36,7 +36,7 @@
    <widget class="QPushButton" name="PBMin">
     <property name="geometry">
      <rect>
-      <x>630</x>
+      <x>640</x>
       <y>10</y>
       <width>31</width>
       <height>31</height>
@@ -79,6 +79,7 @@ border-radius:4px;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(150, 150, 150);
+font: 75 12pt &quot;微软雅黑&quot;;
 border-radius:3px;</string>
     </property>
    </widget>
@@ -127,7 +128,8 @@ color: rgb(255, 255, 255);</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(150, 150, 150);
-border-radius:3px;</string>
+border-radius:3px;
+font: 75 12pt &quot;微软雅黑&quot;;</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">

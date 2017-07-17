@@ -12,12 +12,15 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    adminoper.cpp
 
 HEADERS  += mainwindow.h \
-    dbconnect.h
+    dbconnect.h \
+    adminoper.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    adminoper.ui
 
 RESOURCES += \
     new.qrc
