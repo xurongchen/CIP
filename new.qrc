@@ -3,5 +3,6 @@
         <file>m_min.png</file>
         <file>road.png</file>
         <file>x_close.png</file>
+        <file>return.png</file>
     </qresource>
 </RCC>
