@@ -16,6 +16,9 @@
 #define ADD_ERROR_DIFF_PASSWORD -2
 #define ADD_ERROR_PASSWORD_NULL -3
 
+#define INFO_SUCCESS 0
+#define INFO_ERROR_NO_USER -1
+
 
 class User
 {
@@ -27,6 +30,16 @@ public:
     User(QString _name);
     int add();
     int del();
+};
+
+class Info
+{
+private:
+    QString text;
+    int senderid,recipientid;
+public:
+    Info(int _senderid,int _recipientid,QString _text);
+    int add();
 };
 
 

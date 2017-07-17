@@ -44,3 +44,23 @@ int User::del()
     return DELETE_SUCCESS;
 }
 
+Info::Info(int _senderid, int _recipientid, QString _text)
+{
+    senderid=_senderid;
+    recipientid=_recipientid;
+    text=_text;
+}
+
+int Info::add()
+{
+    QSqlDatabase db = QSqlDatabase::database("connection");
+    QSqlQuery query(db);
+    query.exec(QString("select * from UserList where Id=%1").arg(recipientid));
+    if(!query.first())
+        return INFO_ERROR_NO_USER;
+    query.exec("select * from InfoList");
+    query.last();
+    int newid = query.value(0).toInt()+1;
+    query.exec(QString("insert into InfoList values( %1, %2, %3, '%4' )").arg(newid).arg(senderid).arg(recipientid).arg(text));
+    return INFO_SUCCESS;
+}
