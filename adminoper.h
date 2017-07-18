@@ -50,6 +50,10 @@ private slots:
 
     void on_PBLogin_clicked();
 
+    void on_PBDele_clicked();
+
+    void on_PBSend_clicked();
+
 private:
     Ui::AdminOper *ui;
     int flag, flag2;
