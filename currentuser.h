@@ -2,30 +2,26 @@
 #define CURRENTUSER_H
 
 #define USERLOGOUT -1
-
 class CurrentUser
 {
     static int currentuserid;
  public:
-    static void set_currentuser(int userid);
-    static void reset_currentuser();
-    static int get_currentuser();
+    static void set_currentuser(int userid)
+    {
+        currentuserid = userid;
+    }
+    static void reset_currentuser()
+    {
+        currentuserid = USERLOGOUT;
+    }
+    static int get_currentuser()
+    {
+        return currentuserid;
+    }
 };
 
-
-static void CurrentUser::set_currentuser(int userid)
-{
-    CurrentUser.currentuserid = userid;
-}
-
-static void CurrentUser::reset_currentuser()
-{
-    CurrentUser.currentuserid = USERLOGOUT;
-}
-
-static int CurrentUser::get_currentuser()
-{
-    return CurrentUser.currentuserid;
-}
+void set_currentuser(int userid);
+void reset_currentuser();
+int get_currentuser();
 
 #endif // CURRENTUSER_H

@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "dbconnect.h"
 #include "adminoper.h"
+#include "currentuser.h"
 #include <QString>
 #include <string>
 #include <QBitmap>
@@ -96,9 +97,24 @@ void MainWindow::on_PBLogin_clicked()
 //            QMessageBox::information(0,"GoodJob",
 //                        "Login is OK!",QMessageBox::Ok);
             this->hide();
-            AdminOper adminOper;
-            adminOper.exec();
-            qDebug() << "abcd";
+            set_currentuser(query.value(0).toInt());
+            if(query.value(3)==1)
+            {
+                AdminOper adminOper;
+                adminOper.exec();
+                //qDebug() << get_currentuser();
+            }
+            else if(query.value(3)==2)
+            {
+                QMessageBox::information(0,"GoodJob",
+                                        "ManagerLogin is OK!",QMessageBox::Ok);
+            }
+            else if(query.value(3)==3)
+            {
+                QMessageBox::information(0,"GoodJob",
+                                       "SellerLogin is OK!",QMessageBox::Ok);
+            }
+            //qDebug() << "abcd";
             this->show();
         }
     }

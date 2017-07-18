@@ -2,7 +2,7 @@
 
 void test()
 {
-    //db_user_add_test();
+    db_user_add_test();
     //db_user_delete_test();
     //db_info_add_test();
     //db_insurance_add_test();
@@ -11,9 +11,9 @@ void test()
 
 void db_user_add_test()
 {
-    User u1("王心亮","123","123",1);
+    User u1("王心亮","123","123",2);
     u1.add();
-    User u2("ff","3321","3321",1);
+    User u2("ff","3321","3321",3);
     u2.add();
 }
 void db_user_delete_test()
