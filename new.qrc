@@ -11,8 +11,8 @@
         <file>mes.png</file>
         <file>work.png</file>
         <file>road_seller.png</file>
-        <file>arrow.png</file>
-        <file>arrow1.5.png</file>
-        <file>arrow2.png</file>
+        <file>left.png</file>
+        <file>mid.png</file>
+        <file>right.png</file>
     </qresource>
 </RCC>

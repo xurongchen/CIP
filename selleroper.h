@@ -28,6 +28,42 @@ private slots:
 
     void on_PBMessage_clicked();
 
+    void on_PBSend1_clicked();
+
+    void on_PBSend1_2_clicked();
+
+    void on_PBSend1_3_clicked();
+
+    void on_PBMy1_clicked();
+
+    void on_PBMy1_2_clicked();
+
+    void on_PBMy1_3_clicked();
+
+    void on_PBGet1_clicked();
+
+    void on_PBGet1_2_clicked();
+
+    void on_PBGet1_3_clicked();
+
+    void on_PBA1_clicked();
+
+    void on_PBB1_clicked();
+
+    void on_PBC1_clicked();
+
+    void on_PBA2_clicked();
+
+    void on_PBB2_clicked();
+
+    void on_PBC2_clicked();
+
+    void on_PBA3_clicked();
+
+    void on_PBB3_clicked();
+
+    void on_PBC3_clicked();
+
 private:
     Ui::SellerOper *ui;
     int flag, flag2;

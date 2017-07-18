@@ -35,6 +35,8 @@ AdminOper::AdminOper(QWidget *parent) :
 
     //连接关闭按钮和关闭动画
     connect(ui->PBClose, SIGNAL(clicked()), this, SLOT(closeWidget()));
+
+    ui->tabWidget->setCurrentIndex(0);
 }
 
 AdminOper::~AdminOper()

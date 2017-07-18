@@ -29,6 +29,12 @@ SellerOper::SellerOper(QWidget *parent) :
 
     //连接关闭按钮和关闭动画
     connect(ui->PBClose, SIGNAL(clicked()), this, SLOT(closeWidget()));
+
+    ui->dateEdit->setMinimumDate(QDate::currentDate().addDays(0));  // -365天
+    ui->dateEdit->setMaximumDate(QDate::currentDate().addDays(365));  // +365天
+    ui->dateEdit->setCalendarPopup(true);  // 日历弹出
+
+    ui->tabWidget->setCurrentIndex(0);
 }
 
 SellerOper::~SellerOper()
@@ -106,4 +112,94 @@ void SellerOper::on_PBWork_clicked()
 void SellerOper::on_PBMessage_clicked()
 {
     ui->tabWidget->setCurrentIndex(1);
+}
+
+void SellerOper::on_PBSend1_clicked()
+{
+    ui->tabWidget->setCurrentIndex(1);
+}
+
+void SellerOper::on_PBSend1_2_clicked()
+{
+    ui->tabWidget->setCurrentIndex(1);
+}
+
+void SellerOper::on_PBSend1_3_clicked()
+{
+    ui->tabWidget->setCurrentIndex(1);
+}
+
+void SellerOper::on_PBMy1_clicked()
+{
+    ui->tabWidget->setCurrentIndex(2);
+}
+
+void SellerOper::on_PBMy1_2_clicked()
+{
+    ui->tabWidget->setCurrentIndex(2);
+}
+
+void SellerOper::on_PBMy1_3_clicked()
+{
+    ui->tabWidget->setCurrentIndex(2);
+}
+
+void SellerOper::on_PBGet1_clicked()
+{
+    ui->tabWidget->setCurrentIndex(3);
+}
+
+void SellerOper::on_PBGet1_2_clicked()
+{
+    ui->tabWidget->setCurrentIndex(3);
+}
+
+void SellerOper::on_PBGet1_3_clicked()
+{
+    ui->tabWidget->setCurrentIndex(3);
+}
+
+void SellerOper::on_PBA1_clicked()
+{
+    ui->tabWidget->setCurrentIndex(0);
+}
+
+void SellerOper::on_PBB1_clicked()
+{
+    ui->tabWidget->setCurrentIndex(0);
+}
+
+void SellerOper::on_PBC1_clicked()
+{
+    ui->tabWidget->setCurrentIndex(0);
+}
+
+void SellerOper::on_PBA2_clicked()
+{
+    ui->tabWidget->setCurrentIndex(4);
+}
+
+void SellerOper::on_PBB2_clicked()
+{
+    ui->tabWidget->setCurrentIndex(4);
+}
+
+void SellerOper::on_PBC2_clicked()
+{
+    ui->tabWidget->setCurrentIndex(4);
+}
+
+void SellerOper::on_PBA3_clicked()
+{
+    ui->tabWidget->setCurrentIndex(5);
+}
+
+void SellerOper::on_PBB3_clicked()
+{
+    ui->tabWidget->setCurrentIndex(5);
+}
+
+void SellerOper::on_PBC3_clicked()
+{
+    ui->tabWidget->setCurrentIndex(5);
 }
