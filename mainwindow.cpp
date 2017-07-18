@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "dbconnect.h"
 #include "adminoper.h"
+#include "selleroper.h"
 #include "currentuser.h"
 #include <QString>
 #include <string>
@@ -18,6 +19,9 @@ MainWindow::MainWindow(QWidget *parent) :
     flag = 0;
     this->setFixedSize(720,445); //设置固定大小
     this->setWindowFlags(Qt::FramelessWindowHint | Qt::WindowSystemMenuHint | Qt::WindowMinimizeButtonHint); //隐藏标题栏及最小化可见
+
+    ui->LEUser->setFocus(); //鼠标回到用户名栏
+    ui->LEPswd->setEchoMode(QLineEdit::Password); //输入密码时显示*
 
     //圆角
     QBitmap objBitmap(size());
@@ -84,18 +88,30 @@ void MainWindow::on_PBLogin_clicked()
     QSqlQuery query(db);
     query.exec("select * from UserList where Name='"+Username+"'");
     if(!query.first())
+    {
         QMessageBox::critical(0, "ERROR",
                     "No such user!", QMessageBox::Cancel);
+        ui->LEUser->clear();
+        ui->LEPswd->clear();
+        ui->LEUser->setFocus();
+    }
     else
     {
         QString qstr = query.value(2).toString();
         if(qstr!=Password)
+        {
             QMessageBox::critical(0, "ERROR",
                         "Wrong Password!", QMessageBox::Cancel);
+            ui->LEPswd->clear();
+            ui->LEPswd->setFocus();
+        }
         else
         {
 //            QMessageBox::information(0,"GoodJob",
 //                        "Login is OK!",QMessageBox::Ok);
+            ui->LEUser->clear();
+            ui->LEPswd->clear();
+            ui->LEUser->setFocus();
             this->hide();
             set_currentuser(query.value(0).toInt());
             if(query.value(3)==1)
@@ -111,8 +127,10 @@ void MainWindow::on_PBLogin_clicked()
             }
             else if(query.value(3)==3)
             {
-                QMessageBox::information(0,"GoodJob",
-                                       "SellerLogin is OK!",QMessageBox::Ok);
+//                QMessageBox::information(0,"GoodJob",
+//                                       "SellerLogin is OK!",QMessageBox::Ok);
+                SellerOper sellerOper;
+                sellerOper.exec();
             }
             //qDebug() << "abcd";
             this->show();

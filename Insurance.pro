@@ -16,17 +16,20 @@ SOURCES += main.cpp\
     adminoper.cpp \
     test.cpp \
     dboperation.cpp \
-    currentuser.cpp
+    currentuser.cpp \
+    selleroper.cpp
 
 HEADERS  += mainwindow.h \
     dbconnect.h \
     adminoper.h \
     test.h \
     dboperation.h \
-    currentuser.h
+    currentuser.h \
+    selleroper.h
 
 FORMS    += mainwindow.ui \
-    adminoper.ui
+    adminoper.ui \
+    selleroper.ui
 
 RESOURCES += \
     new.qrc

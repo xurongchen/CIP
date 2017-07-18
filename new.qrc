@@ -9,5 +9,10 @@
         <file>road_white.png</file>
         <file>xadm.png</file>
         <file>mes.png</file>
+        <file>work.png</file>
+        <file>road_seller.png</file>
+        <file>arrow.png</file>
+        <file>arrow1.5.png</file>
+        <file>arrow2.png</file>
     </qresource>
 </RCC>
