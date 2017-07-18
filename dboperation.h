@@ -18,8 +18,9 @@
 
 #define INFO_SUCCESS 0
 #define INFO_ERROR_NO_USER -1
+#define INFO_DEL_SUCCESS 0
 
-
+#define INSURANCE_ADD_SUCCESS 0
 class User
 {
 private:
@@ -35,12 +36,24 @@ public:
 class Info
 {
 private:
+    int id;
     QString text;
     int senderid,recipientid;
 public:
     Info(int _senderid,int _recipientid,QString _text);
+    Info(int _id);
     int add();
+    int del();
 };
 
+class Insurance
+{
+private:
+    QString name;
+    int fixedcost,floatcost;
+public:
+    Insurance(QString _name,int _fixedcost,int _floatcost);
+    int add();
+};
 
 #endif // DBOPERATION_H

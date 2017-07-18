@@ -4,7 +4,8 @@ void test()
 {
     //db_user_add_test();
     //db_user_delete_test();
-    db_info_add_test();
+    //db_info_add_test();
+    //db_insurance_add_test();
 }
 
 
@@ -24,5 +25,11 @@ void db_user_delete_test()
 void db_info_add_test()
 {
     Info i1(0,1,"dsafalksdjlkjf");
+    i1.add();
+}
+
+void db_insurance_add_test()
+{
+    Insurance i1("First insurance",199,13);
     i1.add();
 }

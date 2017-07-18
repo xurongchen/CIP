@@ -51,6 +51,8 @@ static bool createConnection()
     query.exec("create table InfoList (Id int primary key, "
                "SenderId int,"
                "RecipientId int,"
+               "Time datetime,"
+               "OwnerId int,"
                "Content varchar(256))");
 
     query.exec("insert into UserList values(0,'admin','hardpswd',1)");

@@ -15,13 +15,15 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     adminoper.cpp \
     test.cpp \
-    dboperation.cpp
+    dboperation.cpp \
+    currentuser.cpp
 
 HEADERS  += mainwindow.h \
     dbconnect.h \
     adminoper.h \
     test.h \
-    dboperation.h
+    dboperation.h \
+    currentuser.h
 
 FORMS    += mainwindow.ui \
     adminoper.ui
