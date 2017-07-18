@@ -14,5 +14,7 @@
         <file>left.png</file>
         <file>mid.png</file>
         <file>right.png</file>
+        <file>view.png</file>
+        <file>add_insurance.png</file>
     </qresource>
 </RCC>

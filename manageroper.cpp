@@ -1,17 +1,17 @@
-#include "selleroper.h"
-#include "ui_selleroper.h"
+#include "manageroper.h"
+#include "ui_manageroper.h"
 #include <QString>
 #include <string>
 #include <QBitmap>
 #include <QPainter>
 #include <QDebug>
 #include <QPropertyAnimation>
+#include <QLineEdit>
+#include <QMessageBox>
 
-
-
-SellerOper::SellerOper(QWidget *parent) :
+ManagerOper::ManagerOper(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::SellerOper)
+    ui(new Ui::ManagerOper)
 {
     ui->setupUi(this);
     ui->tabWidget->setStyleSheet("QTabWidget:pane {border-top:0px solid #e8f3f9;background:  transparent; }"); //设置tab背景透明
@@ -32,20 +32,15 @@ SellerOper::SellerOper(QWidget *parent) :
     //连接关闭按钮和关闭动画
     connect(ui->PBClose, SIGNAL(clicked()), this, SLOT(closeWidget()));
 
-    ui->dateEdit->setMinimumDate(QDate::currentDate().addDays(0));
-    ui->dateEdit->setMaximumDate(QDate::currentDate().addDays(365));  // +365天
-    ui->dateEdit->setCalendarPopup(true);  // 日历弹出
-    //ui->dateEdit->setCalendarWidget();
-
     ui->tabWidget->setCurrentIndex(0);
 }
 
-SellerOper::~SellerOper()
+ManagerOper::~ManagerOper()
 {
     delete ui;
 }
 
-void SellerOper::mousePressEvent(QMouseEvent *e) //鼠标点击界面
+void ManagerOper::mousePressEvent(QMouseEvent *e) //鼠标点击界面
 {
     judge.setX(0), judge.setY(0);
     judge = e->pos();
@@ -58,7 +53,7 @@ void SellerOper::mousePressEvent(QMouseEvent *e) //鼠标点击界面
     last = e->globalPos();
     //qDebug() << judge.rx() << ".." << judge.ry();
 }
-void SellerOper::mouseMoveEvent(QMouseEvent *e) //界面跟随鼠标移动
+void ManagerOper::mouseMoveEvent(QMouseEvent *e) //界面跟随鼠标移动
 {
     if(flag == 0) return;
     int dx = e->globalX() - last.x();
@@ -67,13 +62,23 @@ void SellerOper::mouseMoveEvent(QMouseEvent *e) //界面跟随鼠标移动
     //qDebug() << last.rx() << ".." << last.ry();
     move(x()+dx, y()+dy);
 }
-void SellerOper::mouseReleaseEvent(QMouseEvent *e) //鼠标释放
+void ManagerOper::mouseReleaseEvent(QMouseEvent *e) //鼠标释放
 {
     judge.setX(0), judge.setY(0);
     flag = 0;
 }
 
-bool SellerOper::closeWidget()
+void ManagerOper::on_PBReturn_clicked()
+{
+    flag2 = 1;
+    this->close();
+}
+
+void ManagerOper::on_PBMin_clicked()
+{
+    this->showMinimized();
+}
+bool ManagerOper::closeWidget()
 {
    //界面动画，改变透明度的方式消失1 - 0渐变
    QPropertyAnimation *animation = new QPropertyAnimation(this, "windowOpacity");
@@ -86,7 +91,7 @@ bool SellerOper::closeWidget()
    return true;
 }
 
-void SellerOper::closeEvent(QCloseEvent *)
+void ManagerOper::closeEvent(QCloseEvent *)
 {
     //退出系统
     if(flag2 != 1)
@@ -96,113 +101,62 @@ void SellerOper::closeEvent(QCloseEvent *)
     }
 }
 
-void SellerOper::on_PBMin_clicked()
-{
-    this->showMinimized();
-}
-
-void SellerOper::on_PBReturn_clicked()
-{
-    flag2 = 1;
-    this->close();
-}
-
-void SellerOper::on_PBWork_clicked()
+void ManagerOper::on_PBView_clicked()
 {
     ui->tabWidget->setCurrentIndex(0);
 }
 
-void SellerOper::on_PBMessage_clicked()
+void ManagerOper::on_PBAdd_clicked()
 {
     ui->tabWidget->setCurrentIndex(1);
 }
 
-void SellerOper::on_PBSend1_clicked()
-{
-    ui->tabWidget->setCurrentIndex(1);
-}
-
-void SellerOper::on_PBSend1_2_clicked()
-{
-    ui->tabWidget->setCurrentIndex(1);
-}
-
-void SellerOper::on_PBSend1_3_clicked()
-{
-    ui->tabWidget->setCurrentIndex(1);
-}
-
-void SellerOper::on_PBMy1_clicked()
+void ManagerOper::on_PBMessage_clicked()
 {
     ui->tabWidget->setCurrentIndex(2);
 }
 
-void SellerOper::on_PBMy1_2_clicked()
+void ManagerOper::on_PBSend1_clicked()
 {
     ui->tabWidget->setCurrentIndex(2);
 }
 
-void SellerOper::on_PBMy1_3_clicked()
+void ManagerOper::on_PBSend2_clicked()
 {
     ui->tabWidget->setCurrentIndex(2);
 }
 
-void SellerOper::on_PBGet1_clicked()
+void ManagerOper::on_PBSend3_clicked()
+{
+    ui->tabWidget->setCurrentIndex(2);
+}
+
+void ManagerOper::on_PBMy1_clicked()
 {
     ui->tabWidget->setCurrentIndex(3);
 }
 
-void SellerOper::on_PBGet1_2_clicked()
+void ManagerOper::on_PBMy2_clicked()
 {
     ui->tabWidget->setCurrentIndex(3);
 }
 
-void SellerOper::on_PBGet1_3_clicked()
+void ManagerOper::on_PBMy3_clicked()
 {
     ui->tabWidget->setCurrentIndex(3);
 }
 
-void SellerOper::on_PBA1_clicked()
-{
-    ui->tabWidget->setCurrentIndex(0);
-}
-
-void SellerOper::on_PBB1_clicked()
-{
-    ui->tabWidget->setCurrentIndex(0);
-}
-
-void SellerOper::on_PBC1_clicked()
-{
-    ui->tabWidget->setCurrentIndex(0);
-}
-
-void SellerOper::on_PBA2_clicked()
+void ManagerOper::on_PBGet1_clicked()
 {
     ui->tabWidget->setCurrentIndex(4);
 }
 
-void SellerOper::on_PBB2_clicked()
+void ManagerOper::on_PBGet2_clicked()
 {
     ui->tabWidget->setCurrentIndex(4);
 }
 
-void SellerOper::on_PBC2_clicked()
+void ManagerOper::on_PBGet3_clicked()
 {
     ui->tabWidget->setCurrentIndex(4);
-}
-
-void SellerOper::on_PBA3_clicked()
-{
-    ui->tabWidget->setCurrentIndex(5);
-}
-
-void SellerOper::on_PBB3_clicked()
-{
-    ui->tabWidget->setCurrentIndex(5);
-}
-
-void SellerOper::on_PBC3_clicked()
-{
-    ui->tabWidget->setCurrentIndex(5);
 }

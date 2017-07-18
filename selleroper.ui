@@ -73,7 +73,7 @@
   <widget class="QPushButton" name="PBWork">
    <property name="geometry">
     <rect>
-     <x>60</x>
+     <x>250</x>
      <y>50</y>
      <width>61</width>
      <height>61</height>
@@ -97,7 +97,7 @@ outline: none}</string>
   <widget class="QPushButton" name="PBMessage">
    <property name="geometry">
     <rect>
-     <x>180</x>
+     <x>420</x>
      <y>50</y>
      <width>51</width>
      <height>61</height>
@@ -128,7 +128,7 @@ outline: none}</string>
     </rect>
    </property>
    <property name="currentIndex">
-    <number>4</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -683,7 +683,6 @@ p, li { white-space: pre-wrap; }
      </property>
      <property name="styleSheet">
       <string notr="true">font: 75 12pt &quot;微软雅黑&quot;;
-
 border-radius:3px;</string>
      </property>
     </widget>
@@ -763,6 +762,9 @@ border-radius:3px;</string>
      </property>
      <property name="styleSheet">
       <string notr="true">font: 75 12pt &quot;微软雅黑&quot;;
+alternate-background-color: rgb(147, 147, 255);
+selection-background-color: rgb(147, 147, 255);
+color: rgb(0, 0, 0);
 border-radius:3px;</string>
      </property>
     </widget>
@@ -845,6 +847,12 @@ outline: none</string>
        <width>75</width>
        <height>23</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(99, 99, 99);
+font: 75 11pt &quot;微软雅黑&quot;;
+border-radius:4px;</string>
      </property>
      <property name="text">
       <string>生成保单</string>
