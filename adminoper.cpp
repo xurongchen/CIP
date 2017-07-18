@@ -2,7 +2,7 @@
 #include "ui_adminoper.h"
 #include "dboperation.h"
 #include "currentuser.h"
-#include "infomation.h"
+#include "information.h"
 #include <QString>
 #include <string>
 #include <QBitmap>
