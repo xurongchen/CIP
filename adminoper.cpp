@@ -1,6 +1,7 @@
 #include "adminoper.h"
 #include "ui_adminoper.h"
 #include "dboperation.h"
+#include "currentuser.h"
 #include <QString>
 #include <string>
 #include <QBitmap>
@@ -206,5 +207,62 @@ void AdminOper::on_PBLogin_clicked()
         ui->LEUser->clear();
         ui->LEPswd->clear();
         ui->LEPswd2->clear();
+    }
+}
+
+/*
+#define DELETE_SUCCESS 0
+#define DELETE_ERROR_NO_USER -1
+#define DELETE_ERROR_ADMIN -2
+*/
+
+void AdminOper::on_PBDele_clicked()
+{
+    QString delstr1 = ui->LEDelete->text();
+    QString delstr2 = ui->LEDelete2->text();
+    if(delstr1!=delstr2)
+        QMessageBox::critical(0, "ERROR",
+                    "UERNAME IS DIFFERENT!", QMessageBox::Cancel);
+    else
+    {
+        User u(delstr1);
+        int message = u.del();
+        if(message==DELETE_ERROR_NO_USER)
+            QMessageBox::critical(0, "ERROR",
+                        "NO SUCH USER!", QMessageBox::Cancel);
+        if(message==DELETE_ERROR_ADMIN)
+            QMessageBox::critical(0, "ERROR",
+                        "ADMIN CANNOT DELETE!", QMessageBox::Cancel);
+        if(message==DELETE_SUCCESS)
+            QMessageBox::information(0, "SUCCESS",
+                        "SUCCESS TO DELETE A USER!", QMessageBox::Ok);
+    }
+    ui->LEDelete->clear();
+    ui->LEDelete2->clear();
+}
+
+
+void AdminOper::on_PBSend_clicked()
+{
+    QString strsend = ui->LESend->text();
+    QString contentsend = ui->TESend->toPlainText();
+    User u(strsend);
+    int message = u.query();
+    if(message==QUERY_NO_USER&&strsend!=NULL)
+        QMessageBox::critical(0, "ERROR",
+                    "NO SUCH USER!", QMessageBox::Cancel);
+    else if(strsend!=NULL)
+    {
+        Info i(get_currentuser(),message,contentsend);
+        i.add();
+        QMessageBox::information(0, "SUCCESS",
+                    QString("A MESSAGE HAS BEEN SENT TO %1!").arg(strsend), QMessageBox::Ok);
+    }
+    else
+    {
+        Info i(get_currentuser(),-1,contentsend);
+        i.add();
+        QMessageBox::information(0, "SUCCESS",
+                    QString("A MESSAGE HAS BEEN BROADCAST!").arg(strsend), QMessageBox::Ok);
     }
 }

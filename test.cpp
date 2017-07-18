@@ -11,7 +11,8 @@ void test()
 
 void db_user_add_test()
 {
-    User u1("王心亮","123","123",2);
+    QString str=QString::fromLocal8Bit("王心亮");
+    User u1(str,"123","123",2);
     u1.add();
     User u2("ff","3321","3321",3);
     u2.add();
