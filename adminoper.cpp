@@ -1,11 +1,14 @@
 #include "adminoper.h"
 #include "ui_adminoper.h"
+#include "dboperation.h"
 #include <QString>
 #include <string>
 #include <QBitmap>
 #include <QPainter>
 #include <QDebug>
 #include <QPropertyAnimation>
+#include <QLineEdit>
+#include <QMessageBox>
 
 AdminOper::AdminOper(QWidget *parent) :
     QDialog(parent),
@@ -18,6 +21,9 @@ AdminOper::AdminOper(QWidget *parent) :
     flag2 = 0;
     this->setFixedSize(720,445); //设置固定大小
     this->setWindowFlags(Qt::FramelessWindowHint | Qt::WindowSystemMenuHint | Qt::WindowMinimizeButtonHint); //隐藏标题栏及最小化可见
+
+    ui->LEPswd->setEchoMode(QLineEdit::Password);
+    ui->LEPswd2->setEchoMode(QLineEdit::Password);
 
     //圆角
     QBitmap objBitmap(size());
@@ -156,4 +162,49 @@ void AdminOper::on_PBGet2_clicked()
 void AdminOper::on_PBGet3_clicked()
 {
     ui->tabWidget->setCurrentIndex(4);
+}
+
+
+/*
+#define ADD_SUCCESS 0
+#define ADD_ERROR_SAME_USERNAME -1
+#define ADD_ERROR_DIFF_PASSWORD -2
+#define ADD_ERROR_PASSWORD_NULL -3
+*/
+void AdminOper::on_PBLogin_clicked()
+{
+    QString str_user = ui->LEUser->text();
+    QString str_pswd1 = ui->LEPswd->text();
+    QString str_pswd2 = ui->LEPswd2->text();
+    int index = ui->comboBox->currentIndex();
+    int role;
+    if(index==0)
+        role=3;
+    else role=2;
+    User newuser(str_user,str_pswd1,str_pswd2,role);
+    int message = newuser.add();
+    if(message==ADD_ERROR_SAME_USERNAME)
+    {
+        QMessageBox::critical(0, "ERROR",
+                    "USERNAME HAS BEED USED!", QMessageBox::Cancel);
+        ui->LEUser->clear();
+    }
+    if(message==ADD_ERROR_DIFF_PASSWORD)
+    {
+        QMessageBox::critical(0, "ERROR",
+                    "PASSWORD NOT SAME!", QMessageBox::Cancel);
+        ui->LEPswd->clear();
+        ui->LEPswd2->clear();
+    }
+    if(message==ADD_ERROR_PASSWORD_NULL)
+        QMessageBox::critical(0, "ERROR",
+                    "PASSWORD SHOULD NOT BE EMPTY!", QMessageBox::Cancel);
+    if(message==ADD_SUCCESS)
+    {
+        QMessageBox::information(0, "SUCCESS",
+                    "NEW USER HAS BEEN REGISTERED!", QMessageBox::Ok);
+        ui->LEUser->clear();
+        ui->LEPswd->clear();
+        ui->LEPswd2->clear();
+    }
 }
