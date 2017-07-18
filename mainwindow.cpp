@@ -3,6 +3,7 @@
 #include "dbconnect.h"
 #include "adminoper.h"
 #include "selleroper.h"
+#include "manageroper.h"
 #include "currentuser.h"
 #include <QString>
 #include <string>
@@ -128,8 +129,10 @@ void MainWindow::on_PBLogin_clicked()
             }
             else if(query.value(3)==2)
             {
-                QMessageBox::information(0,"GoodJob",
-                                        "ManagerLogin is OK!",QMessageBox::Ok);
+//                QMessageBox::information(0,"GoodJob",
+//                                        "ManagerLogin is OK!",QMessageBox::Ok);
+                ManagerOper managerOper;
+                managerOper.exec();
             }
             else if(query.value(3)==3)
             {
