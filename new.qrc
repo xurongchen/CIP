@@ -7,5 +7,7 @@
         <file>road.jpg</file>
         <file>adm.png</file>
         <file>road_white.png</file>
+        <file>xadm.png</file>
+        <file>mes.png</file>
     </qresource>
 </RCC>

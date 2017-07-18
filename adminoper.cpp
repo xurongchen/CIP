@@ -103,7 +103,57 @@ void AdminOper::on_PBAdd_clicked()
     ui->tabWidget->setCurrentIndex(0);
 }
 
-void AdminOper::on_pushButton_clicked()
+void AdminOper::on_PBDelete_clicked()
 {
     ui->tabWidget->setCurrentIndex(1);
+}
+
+void AdminOper::on_PBMessage_clicked()
+{
+    ui->tabWidget->setCurrentIndex(2);
+}
+
+void AdminOper::on_PBSend1_clicked()
+{
+    ui->tabWidget->setCurrentIndex(2);
+}
+
+void AdminOper::on_PBSend2_clicked()
+{
+    ui->tabWidget->setCurrentIndex(2);
+}
+
+void AdminOper::on_PBSend3_clicked()
+{
+    ui->tabWidget->setCurrentIndex(2);
+}
+
+void AdminOper::on_PBMy1_clicked()
+{
+    ui->tabWidget->setCurrentIndex(3);
+}
+
+void AdminOper::on_PBMy2_clicked()
+{
+    ui->tabWidget->setCurrentIndex(3);
+}
+
+void AdminOper::on_PBMy3_clicked()
+{
+    ui->tabWidget->setCurrentIndex(3);
+}
+
+void AdminOper::on_PBGet1_clicked()
+{
+    ui->tabWidget->setCurrentIndex(4);
+}
+
+void AdminOper::on_PBGet2_clicked()
+{
+    ui->tabWidget->setCurrentIndex(4);
+}
+
+void AdminOper::on_PBGet3_clicked()
+{
+    ui->tabWidget->setCurrentIndex(4);
 }

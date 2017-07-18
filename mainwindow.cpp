@@ -93,8 +93,8 @@ void MainWindow::on_PBLogin_clicked()
                         "Wrong Password!", QMessageBox::Cancel);
         else
         {
-            QMessageBox::information(0,"GoodJob",
-                        "Login is OK!",QMessageBox::Ok);
+//            QMessageBox::information(0,"GoodJob",
+//                        "Login is OK!",QMessageBox::Ok);
             this->hide();
             AdminOper adminOper;
             adminOper.exec();

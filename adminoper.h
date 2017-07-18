@@ -26,7 +26,27 @@ private slots:
 
     void on_PBAdd_clicked();
 
-    void on_pushButton_clicked();
+    void on_PBDelete_clicked();
+
+    void on_PBMessage_clicked();
+
+    void on_PBSend1_clicked();
+
+    void on_PBSend2_clicked();
+
+    void on_PBSend3_clicked();
+
+    void on_PBMy1_clicked();
+
+    void on_PBMy2_clicked();
+
+    void on_PBMy3_clicked();
+
+    void on_PBGet1_clicked();
+
+    void on_PBGet2_clicked();
+
+    void on_PBGet3_clicked();
 
 private:
     Ui::AdminOper *ui;
