@@ -17,7 +17,8 @@ SOURCES += main.cpp\
     test.cpp \
     dboperation.cpp \
     currentuser.cpp \
-    selleroper.cpp
+    selleroper.cpp \
+    information.cpp
 
 HEADERS  += mainwindow.h \
     dbconnect.h \
@@ -25,7 +26,8 @@ HEADERS  += mainwindow.h \
     test.h \
     dboperation.h \
     currentuser.h \
-    selleroper.h
+    selleroper.h \
+    information.h
 
 FORMS    += mainwindow.ui \
     adminoper.ui \

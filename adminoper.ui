@@ -106,7 +106,7 @@ p, li { white-space: pre-wrap; }
     <string notr="true"/>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>3</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -516,6 +516,16 @@ color: rgb(255, 255, 255);</string>
      </property>
      <property name="text">
       <string>我的接收</string>
+     </property>
+    </widget>
+    <widget class="QTableView" name="TVSend">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>30</y>
+       <width>341</width>
+       <height>192</height>
+      </rect>
      </property>
     </widget>
    </widget>

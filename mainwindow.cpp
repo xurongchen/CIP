@@ -84,6 +84,12 @@ void MainWindow::on_PBLogin_clicked()
 {
     QString Username = ui->LEUser->text();
     QString Password = ui->LEPswd->text();
+    if(Username==NULL)
+    {
+        QMessageBox::critical(0, "ERROR",
+                    "USERNAME IS EMPTY!", QMessageBox::Cancel);
+        return;
+    }
     QSqlDatabase db = QSqlDatabase::database("connection");
     QSqlQuery query(db);
     query.exec("select * from UserList where Name='"+Username+"'");

@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QMouseEvent>
+#include <QStandardItemModel>
 
 namespace Ui {
     class AdminOper;
@@ -16,6 +17,7 @@ public:
     explicit AdminOper(QWidget *parent = 0);
     ~AdminOper();
     void closeEvent(QCloseEvent *);
+    QStandardItemModel *infosend, *inforeci;
 
 private slots:
     void on_PBMin_clicked();

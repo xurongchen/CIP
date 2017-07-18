@@ -17,6 +17,8 @@ User::User(QString _name)
 
 int User::add()
 {
+    if(this->name==NULL)
+        return ADD_ERROR_USERNAME_NULL;
     if(this->pswd1!=this->pswd2)
         return ADD_ERROR_DIFF_PASSWORD;
     if(this->pswd1==NULL)

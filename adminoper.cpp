@@ -2,6 +2,7 @@
 #include "ui_adminoper.h"
 #include "dboperation.h"
 #include "currentuser.h"
+#include "infomation.h"
 #include <QString>
 #include <string>
 #include <QBitmap>
@@ -10,6 +11,8 @@
 #include <QPropertyAnimation>
 #include <QLineEdit>
 #include <QMessageBox>
+
+
 
 AdminOper::AdminOper(QWidget *parent) :
     QDialog(parent),
@@ -38,6 +41,10 @@ AdminOper::AdminOper(QWidget *parent) :
     connect(ui->PBClose, SIGNAL(clicked()), this, SLOT(closeWidget()));
 
     ui->tabWidget->setCurrentIndex(0);
+    infosend=NULL;
+    inforeci=NULL;
+    send_renew(infosend);
+    ui->TVSend->setModel(infosend);
 }
 
 AdminOper::~AdminOper()
@@ -186,6 +193,12 @@ void AdminOper::on_PBLogin_clicked()
     else role=2;
     User newuser(str_user,str_pswd1,str_pswd2,role);
     int message = newuser.add();
+    if(message==ADD_ERROR_USERNAME_NULL)
+    {
+        QMessageBox::critical(0, "ERROR",
+                    "USERNAME SHOULD NOT BE EMPTY!", QMessageBox::Cancel);
+        ui->LEUser->clear();
+    }
     if(message==ADD_ERROR_SAME_USERNAME)
     {
         QMessageBox::critical(0, "ERROR",
@@ -268,3 +281,6 @@ void AdminOper::on_PBSend_clicked()
                     QString("A MESSAGE HAS BEEN BROADCAST!").arg(strsend), QMessageBox::Ok);
     }
 }
+
+
+
