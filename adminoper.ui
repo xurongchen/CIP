@@ -106,7 +106,7 @@ p, li { white-space: pre-wrap; }
     <string notr="true"/>
    </property>
    <property name="currentIndex">
-    <number>3</number>
+    <number>4</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -482,8 +482,8 @@ color: rgb(255, 255, 255);</string>
     <widget class="QPushButton" name="PBSend2">
      <property name="geometry">
       <rect>
-       <x>50</x>
-       <y>60</y>
+       <x>40</x>
+       <y>30</y>
        <width>75</width>
        <height>23</height>
       </rect>
@@ -495,8 +495,8 @@ color: rgb(255, 255, 255);</string>
     <widget class="QPushButton" name="PBMy2">
      <property name="geometry">
       <rect>
-       <x>50</x>
-       <y>120</y>
+       <x>40</x>
+       <y>80</y>
        <width>75</width>
        <height>23</height>
       </rect>
@@ -508,8 +508,8 @@ color: rgb(255, 255, 255);</string>
     <widget class="QPushButton" name="PBGet2">
      <property name="geometry">
       <rect>
-       <x>50</x>
-       <y>180</y>
+       <x>40</x>
+       <y>130</y>
        <width>75</width>
        <height>23</height>
       </rect>
@@ -521,11 +521,37 @@ color: rgb(255, 255, 255);</string>
     <widget class="QTableView" name="TVSend">
      <property name="geometry">
       <rect>
-       <x>160</x>
-       <y>30</y>
-       <width>341</width>
-       <height>192</height>
+       <x>170</x>
+       <y>10</y>
+       <width>360</width>
+       <height>160</height>
       </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="PBSendDel">
+     <property name="geometry">
+      <rect>
+       <x>330</x>
+       <y>200</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>delete</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="PBSendClear">
+     <property name="geometry">
+      <rect>
+       <x>430</x>
+       <y>200</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>clear</string>
      </property>
     </widget>
    </widget>
@@ -570,6 +596,42 @@ color: rgb(255, 255, 255);</string>
      </property>
      <property name="text">
       <string>我的接收</string>
+     </property>
+    </widget>
+    <widget class="QTableView" name="TVReci">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>10</y>
+       <width>360</width>
+       <height>160</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="PBReciDel">
+     <property name="geometry">
+      <rect>
+       <x>300</x>
+       <y>190</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>delete</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="PBReciClear">
+     <property name="geometry">
+      <rect>
+       <x>420</x>
+       <y>190</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>clear</string>
      </property>
     </widget>
    </widget>

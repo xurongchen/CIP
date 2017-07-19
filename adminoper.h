@@ -56,6 +56,14 @@ private slots:
 
     void on_PBSend_clicked();
 
+    void on_PBSendDel_clicked();
+
+    void on_PBSendClear_clicked();
+
+    void on_PBReciDel_clicked();
+
+    void on_PBReciClear_clicked();
+
 private:
     Ui::AdminOper *ui;
     int flag, flag2;

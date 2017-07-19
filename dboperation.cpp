@@ -84,18 +84,42 @@ int Info::add()
     QString str = time.toString("yyyy-MM-dd hh:mm:ss"); //设置显示格式
     query.exec(QString("insert into InfoList values( %1, %2, %3, '%4', %5, '%6')")
                .arg(newid).arg(senderid).arg(recipientid).arg(str).arg(senderid).arg(text));
-    if(recipientid!=-1)
+    if(recipientid!=-1&&senderid!=recipientid)
     query.exec(QString("insert into InfoList values( %1, %2, %3, '%4', %5, '%6')")
                .arg(newid+1).arg(senderid).arg(recipientid).arg(str).arg(recipientid).arg(text));
     return INFO_SUCCESS;
 }
 
-int Info::del()
+int Info::del(INFODELTYPE _INFODELTYPE)
 {
     QSqlDatabase db = QSqlDatabase::database("connection");
     QSqlQuery query(db);
+    if(_INFODELTYPE==RECIDEL)
+    {
+        QSqlQuery tmpquery(db);
+        tmpquery.exec(QString("select * from InfoList where Id=%1").arg(id));
+        tmpquery.first();
+        if(tmpquery.value(2)==-1)
+            return INFO_DEL_FAILED_NO_PERMISSION;
+    }
     query.exec(QString("delete from InfoList where Id=%1").arg(id));
     return INFO_DEL_SUCCESS;
+}
+
+void Current_user_send_Info_clear()
+{
+    QSqlDatabase db = QSqlDatabase::database("connection");
+    QSqlQuery query(db);
+    query.exec(QString("delete from InfoList where OwnerId=%1 and SenderId=%2")
+               .arg(get_currentuser()).arg(get_currentuser()));
+}
+
+void Current_user_reci_Info_clear()
+{
+    QSqlDatabase db = QSqlDatabase::database("connection");
+    QSqlQuery query(db);
+    query.exec(QString("delete from InfoList where OwnerId=%1 and RecipientId=%2")
+               .arg(get_currentuser()).arg(get_currentuser()));
 }
 
 Insurance::Insurance(QString _name, int _fixedcost, int _floatcost)

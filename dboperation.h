@@ -22,12 +22,16 @@
 #define INFO_SUCCESS 0
 #define INFO_ERROR_NO_USER -1
 #define INFO_DEL_SUCCESS 0
+#define INFO_DEL_FAILED_NO_PERMISSION -1
 
 #define INSURANCE_ADD_SUCCESS 0
 
 #define POLICY_ADD_SUCCESS 0
 #define POLICY_ADD_ERROR_SAME_POLICYID -1
 #define POLICY_ADD_ERROR_IMPORTANT_INFO_EMPTY -2
+
+#define RECIDEL 0
+#define SENDDEL 1
 
 class User
 {
@@ -42,6 +46,8 @@ public:
     int query();
 };
 
+typedef int INFODELTYPE;
+
 class Info
 {
 private:
@@ -52,8 +58,11 @@ public:
     Info(int _senderid,int _recipientid,QString _text);
     Info(int _id);
     int add();
-    int del();
+    int del(INFODELTYPE _INFODELTYPE);
 };
+
+void Current_user_send_Info_clear();
+void Current_user_reci_Info_clear();
 
 class Insurance
 {
