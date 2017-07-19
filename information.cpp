@@ -16,7 +16,7 @@ void send_renew(QStandardItemModel *&tb)
     QSqlDatabase db = QSqlDatabase::database("connection");
     QSqlQuery query(db);
     query.exec(QString("select * from InfoList where SenderId=%1 and OwnerId=%2")
-               .arg(get_currentuser()).arg(query.value(2).toInt()));
+               .arg(get_currentuser()).arg(get_currentuser()));
     //query.first();
     int nowline = 0;
     while(query.next())
@@ -56,7 +56,7 @@ void reci_renew(QStandardItemModel *&tb)
     QSqlDatabase db = QSqlDatabase::database("connection");
     QSqlQuery query(db);
     query.exec(QString("select * from InfoList where RecipientId=%1 and OwnerId=%2 or RecipientId=-1")
-               .arg(get_currentuser()).arg(query.value(2).toInt()));
+               .arg(get_currentuser()).arg(get_currentuser()));
     //query.first();
     int nowline = 0;
     while(query.next())

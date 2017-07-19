@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QMouseEvent>
+#include <QStandardItemModel>
 
 namespace Ui {
     class ManagerOper;
@@ -16,6 +17,7 @@ public:
     explicit ManagerOper(QWidget *parent = 0);
     ~ManagerOper();
     void closeEvent(QCloseEvent *);
+    QStandardItemModel *infosend, *inforeci;
 
 private slots:
     bool closeWidget();
@@ -53,6 +55,16 @@ private slots:
     void on_PBAdd2_clicked();
 
     void on_PBView2_clicked();
+
+    void on_PBSend_clicked();
+
+    void on_PBSendDel_clicked();
+
+    void on_PBSendClear_clicked();
+
+    void on_PBReciDel_clicked();
+
+    void on_PBReciClear_clicked();
 
 private:
     Ui::ManagerOper *ui;
