@@ -81,6 +81,8 @@ private slots:
 
     void on_PBSend_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::SellerOper *ui;
     int flag, flag2;

@@ -164,18 +164,64 @@ outline: none}
     <string notr="true"/>
    </property>
    <property name="currentIndex">
-    <number>3</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="tab_3">
     <attribute name="title">
      <string>0</string>
     </attribute>
+    <widget class="QTableView" name="TVInsurance">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>40</y>
+       <width>256</width>
+       <height>192</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton">
+     <property name="geometry">
+      <rect>
+       <x>380</x>
+       <y>80</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>搜索</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_2">
+     <property name="geometry">
+      <rect>
+       <x>380</x>
+       <y>140</y>
+       <width>81</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>显示详细信息</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit">
+     <property name="geometry">
+      <rect>
+       <x>380</x>
+       <y>40</y>
+       <width>113</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="tab_4">
     <attribute name="title">
      <string>1</string>
     </attribute>
-    <widget class="QLineEdit" name="LEDelete">
+    <widget class="QLineEdit" name="LEInsurancename">
      <property name="geometry">
       <rect>
        <x>230</x>
@@ -265,7 +311,7 @@ color: rgb(255, 255, 255);</string>
       <string>比例费用</string>
      </property>
     </widget>
-    <widget class="QSpinBox" name="SBCost">
+    <widget class="QSpinBox" name="SBCostfxed">
      <property name="geometry">
       <rect>
        <x>230</x>
@@ -279,7 +325,7 @@ color: rgb(255, 255, 255);</string>
 border-radius:3px;</string>
      </property>
     </widget>
-    <widget class="QDoubleSpinBox" name="DSBCost">
+    <widget class="QDoubleSpinBox" name="DSBCostfloat">
      <property name="geometry">
       <rect>
        <x>230</x>

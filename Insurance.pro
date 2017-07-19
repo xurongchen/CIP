@@ -20,7 +20,8 @@ SOURCES += main.cpp\
     selleroper.cpp \
     information.cpp \
     manageroper.cpp \
-    pop.cpp
+    pop.cpp \
+    insurance.cpp
 
 HEADERS  += mainwindow.h \
     dbconnect.h \
@@ -31,7 +32,8 @@ HEADERS  += mainwindow.h \
     selleroper.h \
     information.h \
     manageroper.h \
-    pop.h
+    pop.h \
+    insurance.h
 
 FORMS    += mainwindow.ui \
     adminoper.ui \
