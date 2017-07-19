@@ -160,3 +160,18 @@ void ManagerOper::on_PBGet3_clicked()
 {
     ui->tabWidget->setCurrentIndex(4);
 }
+
+void ManagerOper::on_PBMessage2_clicked()
+{
+    ui->tabWidget->setCurrentIndex(2);
+}
+
+void ManagerOper::on_PBAdd2_clicked()
+{
+    ui->tabWidget->setCurrentIndex(1);
+}
+
+void ManagerOper::on_PBView2_clicked()
+{
+    ui->tabWidget->setCurrentIndex(0);
+}
