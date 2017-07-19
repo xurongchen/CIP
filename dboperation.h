@@ -69,9 +69,10 @@ class Insurance
 {
 private:
     QString name;
-    int fixedcost,floatcost;
+    int fixedcost;
+    double floatcost;
 public:
-    Insurance(QString _name,int _fixedcost,int _floatcost);
+    Insurance(QString _name,int _fixedcost,double _floatcost);
     int add();
 };
 

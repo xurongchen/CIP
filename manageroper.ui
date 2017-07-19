@@ -164,7 +164,7 @@ outline: none}
     <string notr="true"/>
    </property>
    <property name="currentIndex">
-    <number>3</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="tab_3">
     <attribute name="title">
@@ -175,7 +175,7 @@ outline: none}
     <attribute name="title">
      <string>1</string>
     </attribute>
-    <widget class="QLineEdit" name="LEDelete">
+    <widget class="QLineEdit" name="LEInsurancename">
      <property name="geometry">
       <rect>
        <x>230</x>
@@ -265,7 +265,7 @@ color: rgb(255, 255, 255);</string>
       <string>比例费用</string>
      </property>
     </widget>
-    <widget class="QSpinBox" name="SBCost">
+    <widget class="QSpinBox" name="SBCostfxed">
      <property name="geometry">
       <rect>
        <x>230</x>
@@ -279,7 +279,7 @@ color: rgb(255, 255, 255);</string>
 border-radius:3px;</string>
      </property>
     </widget>
-    <widget class="QDoubleSpinBox" name="DSBCost">
+    <widget class="QDoubleSpinBox" name="DSBCostfloat">
      <property name="geometry">
       <rect>
        <x>230</x>

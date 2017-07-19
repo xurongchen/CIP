@@ -58,7 +58,7 @@ SellerOper::SellerOper(QWidget *parent) :
     ui->DSBDiscount->setRange(0, 1); // 范围
     ui->DSBDiscount->setDecimals(3);  // 精度
     ui->DSBDiscount->setSingleStep(0.01); // 步长
-    ui->DSBDiscount->setSuffix(QString::fromLocal8Bit(" %"));
+    //ui->DSBDiscount->setSuffix(QString::fromLocal8Bit(" %"));
     ui->DSBDiscount->setValue(0);  // 当前值
     ui->DSBDiscount->setSpecialValueText(QString::fromLocal8Bit("无折扣"));  // 特殊文本值
 

@@ -37,6 +37,20 @@ ManagerOper::ManagerOper(QWidget *parent) :
 
     ui->tabWidget->setCurrentIndex(0);
 
+    ui->SBCostfxed->setRange(0,1000000);
+    ui->SBCostfxed->setSingleStep(100);
+    ui->SBCostfxed->setValue(0);
+    ui->SBCostfxed->setPrefix(QString::fromLocal8Bit("￥ "));
+    ui->SBCostfxed->setSuffix(QString::fromLocal8Bit(" 元"));
+    ui->SBCostfxed->setSpecialValueText(QString::fromLocal8Bit("无固定费用"));
+
+    ui->DSBCostfloat->setRange(0, 1); // 范围
+    ui->DSBCostfloat->setDecimals(3);  // 精度
+    ui->DSBCostfloat->setSingleStep(0.01); // 步长
+    //ui->DSBCostfloat->setSuffix(QString::fromLocal8Bit(" %"));
+    ui->DSBCostfloat->setValue(0);  // 当前值
+    ui->DSBCostfloat->setSpecialValueText(QString::fromLocal8Bit("无浮动费率"));  // 特殊文本值
+
     infosend=NULL;
     inforeci=NULL;
     //infosend
@@ -322,4 +336,17 @@ void ManagerOper::on_PBReciClear_clicked()
     reci_renew(inforeci);
     ui->TVReci->setModel(inforeci);
     ui->TVReci->setColumnWidth(3,0);
+}
+
+void ManagerOper::on_PBDele_clicked()
+{
+    Insurance i(ui->LEInsurancename->text(),
+                int(ui->SBCostfxed->value()),
+                ui->DSBCostfloat->value());
+    i.add();
+    QMessageBox::information(0, "SUCCESS",
+                QString("ADD INSURANCE SUCCESS!"), QMessageBox::Cancel);
+    ui->LEInsurancename->clear();
+    ui->SBCostfxed->setValue(0);
+    ui->DSBCostfloat->setValue(0);
 }

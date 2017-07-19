@@ -122,7 +122,7 @@ void Current_user_reci_Info_clear()
                .arg(get_currentuser()).arg(get_currentuser()));
 }
 
-Insurance::Insurance(QString _name, int _fixedcost, int _floatcost)
+Insurance::Insurance(QString _name, int _fixedcost, double _floatcost)
 {
     name = _name;
     fixedcost = _fixedcost;
@@ -136,7 +136,7 @@ int Insurance::add()
     query.exec("select * from InsuranceList");
     query.last();
     int newid = query.value(0).toInt()+1;
-    query.exec(QString("insert into InsuranceList values( %1, '%2', %3, %4)")
+    query.exec(QString("insert into InsuranceList values( %1, '%2', %3, %4 ,1)")
                .arg(newid).arg(name).arg(fixedcost).arg(floatcost));
     return INSURANCE_ADD_SUCCESS;
 }

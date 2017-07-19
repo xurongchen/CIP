@@ -66,6 +66,8 @@ private slots:
 
     void on_PBReciClear_clicked();
 
+    void on_PBDele_clicked();
+
 private:
     Ui::ManagerOper *ui;
     int flag, flag2;
