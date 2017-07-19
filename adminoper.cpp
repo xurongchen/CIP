@@ -3,6 +3,7 @@
 #include "dboperation.h"
 #include "currentuser.h"
 #include "information.h"
+#include "pop.h"
 #include <QString>
 #include <string>
 #include <QBitmap>
@@ -249,33 +250,46 @@ void AdminOper::on_PBLogin_clicked()
     int message = newuser.add();
     if(message==ADD_ERROR_USERNAME_NULL)
     {
-        QMessageBox::critical(0, "ERROR",
-                    "USERNAME SHOULD NOT BE EMPTY!", QMessageBox::Cancel);
+//        QMessageBox::critical(0, "ERROR",
+//                    "USERNAME SHOULD NOT BE EMPTY!", QMessageBox::Cancel);
+        show_word(QString::fromLocal8Bit("错误！"), QString::fromLocal8Bit("账号不能为空！"));
         ui->LEUser->clear();
+        ui->LEUser->setFocus();
     }
     if(message==ADD_ERROR_SAME_USERNAME)
     {
-        QMessageBox::critical(0, "ERROR",
-                    "USERNAME HAS BEED USED!", QMessageBox::Cancel);
+//        QMessageBox::critical(0, "ERROR",
+//                    "USERNAME HAS BEED USED!", QMessageBox::Cancel);
+        show_word(QString::fromLocal8Bit("错误！"), QString::fromLocal8Bit("该账号已被注册！"));
         ui->LEUser->clear();
+        ui->LEPswd->clear();
+        ui->LEPswd2->clear();
+        ui->LEUser->setFocus();
     }
     if(message==ADD_ERROR_DIFF_PASSWORD)
     {
-        QMessageBox::critical(0, "ERROR",
-                    "PASSWORD NOT SAME!", QMessageBox::Cancel);
+//        QMessageBox::critical(0, "ERROR",
+//                    "PASSWORD NOT SAME!", QMessageBox::Cancel);
+        show_word(QString::fromLocal8Bit("错误！"), QString::fromLocal8Bit("两次输入的密码不一致！"));
         ui->LEPswd->clear();
         ui->LEPswd2->clear();
+        ui->LEPswd->setFocus();
     }
     if(message==ADD_ERROR_PASSWORD_NULL)
-        QMessageBox::critical(0, "ERROR",
-                    "PASSWORD SHOULD NOT BE EMPTY!", QMessageBox::Cancel);
+    {
+//        QMessageBox::critical(0, "ERROR",
+//                    "PASSWORD SHOULD NOT BE EMPTY!", QMessageBox::Cancel);
+        show_word(QString::fromLocal8Bit("错误！"), QString::fromLocal8Bit("密码不能为空！"));
+    }
     if(message==ADD_SUCCESS)
     {
-        QMessageBox::information(0, "SUCCESS",
-                    "NEW USER HAS BEEN REGISTERED!", QMessageBox::Ok);
+//        QMessageBox::information(0, "SUCCESS",
+//                    "NEW USER HAS BEEN REGISTERED!", QMessageBox::Ok);
+        show_word(QString::fromLocal8Bit("成功！"), QString::fromLocal8Bit("账号添加成功！"));
         ui->LEUser->clear();
         ui->LEPswd->clear();
         ui->LEPswd2->clear();
+        ui->LEUser->setFocus();
     }
 }
 
@@ -290,21 +304,33 @@ void AdminOper::on_PBDele_clicked()
     QString delstr1 = ui->LEDelete->text();
     QString delstr2 = ui->LEDelete2->text();
     if(delstr1!=delstr2)
-        QMessageBox::critical(0, "ERROR",
-                    "UERNAME IS DIFFERENT!", QMessageBox::Cancel);
+    {
+//        QMessageBox::critical(0, "ERROR",
+//                    "UERNAME IS DIFFERENT!", QMessageBox::Cancel);
+        show_word(QString::fromLocal8Bit("错误！"), QString::fromLocal8Bit("两次输入的账号不一致！"));
+    }
     else
     {
         User u(delstr1);
         int message = u.del();
         if(message==DELETE_ERROR_NO_USER)
-            QMessageBox::critical(0, "ERROR",
-                        "NO SUCH USER!", QMessageBox::Cancel);
+        {
+//            QMessageBox::critical(0, "ERROR",
+//                        "NO SUCH USER!", QMessageBox::Cancel);
+            show_word(QString::fromLocal8Bit("错误！"), QString::fromLocal8Bit("该账号不存在！"));
+        }
         if(message==DELETE_ERROR_ADMIN)
-            QMessageBox::critical(0, "ERROR",
-                        "ADMIN CANNOT DELETE!", QMessageBox::Cancel);
+        {
+//            QMessageBox::critical(0, "ERROR",
+//                        "ADMIN CANNOT DELETE!", QMessageBox::Cancel);
+            show_word(QString::fromLocal8Bit("错误！"), QString::fromLocal8Bit("管理员账号不可删除！"));
+        }
         if(message==DELETE_SUCCESS)
+        {
             QMessageBox::information(0, "SUCCESS",
                         "SUCCESS TO DELETE A USER!", QMessageBox::Ok);
+            show_word(QString::fromLocal8Bit("成功！"), QString::fromLocal8Bit("账号删除成功！"));
+        }
     }
     ui->LEDelete->clear();
     ui->LEDelete2->clear();
