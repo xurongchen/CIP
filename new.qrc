@@ -16,5 +16,25 @@
         <file>right.png</file>
         <file>view.png</file>
         <file>add_insurance.png</file>
+        <file>return_2.png</file>
+        <file>return_3.png</file>
+        <file>m_min_2.png</file>
+        <file>m_min_3.png</file>
+        <file>x_close_2.png</file>
+        <file>x_close_3.png</file>
+        <file>mes_2.png</file>
+        <file>mes_3.png</file>
+        <file>work_3.png</file>
+        <file>add_insurance_2.png</file>
+        <file>add_insurance_3.png</file>
+        <file>work_2.png</file>
+        <file>view_2.png</file>
+        <file>view_3.png</file>
+        <file>right_2.png</file>
+        <file>right_3.png</file>
+        <file>left_3.png</file>
+        <file>left_2.png</file>
+        <file>mid_2.png</file>
+        <file>mid_3.png</file>
     </qresource>
 </RCC>

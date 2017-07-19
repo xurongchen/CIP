@@ -1,7 +1,8 @@
-#include "infomation.h"
+#include "information.h"
 #include "currentuser.h"
 #include <QSqlDatabase>
 #include <QSqlQuery>
+#include <QStandardItemModel>
 
 void send_renew(QStandardItemModel *tb)
 {

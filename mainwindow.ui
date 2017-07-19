@@ -27,7 +27,10 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/new/prefix1/x_close.png);</string>
+     <string notr="true">#PBClose{border-image: url(:/new/prefix1/x_close.png);
+outline: none}
+#PBClose:hover{border-image: url(:/new/prefix1/x_close_2.png);}
+#PBClose:pressed{border-image: url(:/new/prefix1/x_close_3.png);}</string>
     </property>
     <property name="text">
      <string/>
@@ -43,7 +46,11 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/new/prefix1/m_min.png);</string>
+     <string notr="true">#PBMin{border-image: url(:/new/prefix1/m_min.png);
+outline: none}
+#PBMin:hover{
+border-image: url(:/new/prefix1/m_min_2.png);}
+#PBMin:pressed{border-image: url(:/new/prefix1/m_min_3.png);}</string>
     </property>
     <property name="text">
      <string/>
@@ -59,10 +66,13 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(255, 255, 255);
+     <string notr="true">#PBLogin{color: rgb(255, 255, 255);
 background-color: rgb(99, 99, 99);
 font: 75 18pt &quot;微软雅黑&quot;;
-border-radius:4px;</string>
+border-radius:4px;
+outline: none}
+#PBLogin:hover{background-color: rgbrgb(125, 125, 125);}
+#PBLogin:pressed{background-color: rgbrgb(99, 99, 99);}</string>
     </property>
     <property name="text">
      <string>登录</string>
