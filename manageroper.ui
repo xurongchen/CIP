@@ -164,7 +164,7 @@ outline: none}
     <string notr="true"/>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="tab_3">
     <attribute name="title">
@@ -585,55 +585,70 @@ outline: none}
     </widget>
    </widget>
   </widget>
-  <widget class="QLabel" name="label_2">
+  <widget class="QPushButton" name="PBMessage2">
    <property name="geometry">
     <rect>
      <x>530</x>
      <y>70</y>
-     <width>71</width>
+     <width>75</width>
      <height>31</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">font: 12pt &quot;微软雅黑&quot;;
-color: rgb(255, 255, 255);</string>
+color: rgb(255, 255, 255);
+outline: none;
+background-color: rgba(0, 0, 0, 0);</string>
    </property>
    <property name="text">
     <string>消息广播</string>
    </property>
+   <property name="flat">
+    <bool>false</bool>
+   </property>
   </widget>
-  <widget class="QLabel" name="label_3">
+  <widget class="QPushButton" name="PBAdd2">
    <property name="geometry">
     <rect>
      <x>360</x>
      <y>70</y>
-     <width>71</width>
+     <width>75</width>
      <height>31</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">font: 12pt &quot;微软雅黑&quot;;
-color: rgb(255, 255, 255);</string>
+color: rgb(255, 255, 255);
+outline: none;
+background-color: rgba(0, 0, 0, 0);</string>
    </property>
    <property name="text">
     <string>添加保险</string>
    </property>
+   <property name="flat">
+    <bool>false</bool>
+   </property>
   </widget>
-  <widget class="QLabel" name="label_4">
+  <widget class="QPushButton" name="PBView2">
    <property name="geometry">
     <rect>
      <x>190</x>
      <y>70</y>
-     <width>71</width>
+     <width>75</width>
      <height>31</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">font: 12pt &quot;微软雅黑&quot;;
-color: rgb(255, 255, 255);</string>
+color: rgb(255, 255, 255);
+outline: none;
+background-color: rgba(0, 0, 0, 0);</string>
    </property>
    <property name="text">
     <string>查看保单</string>
+   </property>
+   <property name="flat">
+    <bool>false</bool>
    </property>
   </widget>
  </widget>

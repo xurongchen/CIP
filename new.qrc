@@ -36,5 +36,9 @@
         <file>left_2.png</file>
         <file>mid_2.png</file>
         <file>mid_3.png</file>
+        <file>adm_2.png</file>
+        <file>adm_3.png</file>
+        <file>xadm_2.png</file>
+        <file>xadm_3.png</file>
     </qresource>
 </RCC>

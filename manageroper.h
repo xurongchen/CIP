@@ -48,6 +48,12 @@ private slots:
 
     void on_PBGet3_clicked();
 
+    void on_PBMessage2_clicked();
+
+    void on_PBAdd2_clicked();
+
+    void on_PBView2_clicked();
+
 private:
     Ui::ManagerOper *ui;
     int flag, flag2;
