@@ -206,3 +206,13 @@ void SellerOper::on_PBC3_clicked()
 {
     ui->tabWidget->setCurrentIndex(5);
 }
+
+void SellerOper::on_PBWork2_clicked()
+{
+    ui->tabWidget->setCurrentIndex(0);
+}
+
+void SellerOper::on_PBMessage2_clicked()
+{
+    ui->tabWidget->setCurrentIndex(1);
+}

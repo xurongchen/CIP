@@ -64,6 +64,10 @@ private slots:
 
     void on_PBC3_clicked();
 
+    void on_PBWork2_clicked();
+
+    void on_PBMessage2_clicked();
+
 private:
     Ui::SellerOper *ui;
     int flag, flag2;

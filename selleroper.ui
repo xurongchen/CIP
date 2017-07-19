@@ -138,7 +138,7 @@ outline: none}
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -992,38 +992,51 @@ outline: none}
     <zorder>pushButton</zorder>
    </widget>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QPushButton" name="PBWork2">
    <property name="geometry">
     <rect>
      <x>270</x>
      <y>70</y>
-     <width>71</width>
-     <height>31</height>
+     <width>75</width>
+     <height>23</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">font: 12pt &quot;微软雅黑&quot;;
-color: rgb(255, 255, 255);</string>
+color: rgb(255, 255, 255);
+outline: none;
+background-color: rgba(0, 0, 0, 0);</string>
    </property>
    <property name="text">
     <string>编辑保单</string>
    </property>
+   <property name="default">
+    <bool>false</bool>
+   </property>
+   <property name="flat">
+    <bool>false</bool>
+   </property>
   </widget>
-  <widget class="QLabel" name="label_2">
+  <widget class="QPushButton" name="PBMessage2">
    <property name="geometry">
     <rect>
      <x>470</x>
      <y>70</y>
-     <width>71</width>
-     <height>31</height>
+     <width>75</width>
+     <height>23</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">font: 12pt &quot;微软雅黑&quot;;
-color: rgb(255, 255, 255);</string>
+color: rgb(255, 255, 255);
+outline: none;
+background-color: rgba(0, 0, 0, 0);</string>
    </property>
    <property name="text">
     <string>消息广播</string>
+   </property>
+   <property name="flat">
+    <bool>false</bool>
    </property>
   </widget>
   <zorder>tabWidget</zorder>
@@ -1032,8 +1045,8 @@ color: rgb(255, 255, 255);</string>
   <zorder>PBReturn</zorder>
   <zorder>PBWork</zorder>
   <zorder>PBMessage</zorder>
-  <zorder>label</zorder>
-  <zorder>label_2</zorder>
+  <zorder>PBWork2</zorder>
+  <zorder>PBMessage2</zorder>
  </widget>
  <resources/>
  <connections/>
