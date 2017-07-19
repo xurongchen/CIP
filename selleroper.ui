@@ -138,7 +138,7 @@ outline: none}
     </rect>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>5</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -300,28 +300,6 @@ p, li { white-space: pre-wrap; }
 border-radius:3px;</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="LEPrice">
-     <property name="geometry">
-      <rect>
-       <x>270</x>
-       <y>250</y>
-       <width>161</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="toolTip">
-      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'微软雅黑'; font-size:12pt; font-weight:72; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;此处为空即可广播消息至全部用户&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 75 12pt &quot;微软雅黑&quot;;
-
-border-radius:3px;</string>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_12">
      <property name="geometry">
       <rect>
@@ -407,6 +385,23 @@ color: rgb(255, 255, 255);</string>
       <string>车价</string>
      </property>
     </widget>
+    <widget class="QSpinBox" name="SBPrice">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>250</y>
+       <width>161</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 75 12pt &quot;微软雅黑&quot;;
+alternate-background-color: rgb(147, 147, 255);
+selection-background-color: rgb(147, 147, 255);
+color: rgb(0, 0, 0);
+border-radius:3px;</string>
+     </property>
+    </widget>
     <zorder>PBA3</zorder>
     <zorder>PBA2</zorder>
     <zorder>PBA1</zorder>
@@ -414,12 +409,12 @@ color: rgb(255, 255, 255);</string>
     <zorder>LECard</zorder>
     <zorder>LENum</zorder>
     <zorder>LEStyle</zorder>
-    <zorder>LEPrice</zorder>
     <zorder>label_12</zorder>
     <zorder>label_13</zorder>
     <zorder>label_14</zorder>
     <zorder>label_15</zorder>
     <zorder>label_16</zorder>
+    <zorder>SBPrice</zorder>
    </widget>
    <widget class="QWidget" name="tab_2">
     <attribute name="title">
@@ -780,7 +775,7 @@ outline: none}
       <string>添加保险</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="LEName_2">
+    <widget class="QLineEdit" name="LEPolicynum">
      <property name="geometry">
       <rect>
        <x>270</x>
@@ -852,7 +847,7 @@ color: rgb(255, 255, 255);</string>
       <string>优惠</string>
      </property>
     </widget>
-    <widget class="QDoubleSpinBox" name="doubleSpinBox">
+    <widget class="QDoubleSpinBox" name="DSBDiscount">
      <property name="geometry">
       <rect>
        <x>300</x>
@@ -866,7 +861,7 @@ color: rgb(255, 255, 255);</string>
 border-radius:3px;</string>
      </property>
     </widget>
-    <widget class="QDateEdit" name="dateEdit">
+    <widget class="QDateEdit" name="DEStart">
      <property name="geometry">
       <rect>
        <x>290</x>
@@ -886,12 +881,12 @@ border-radius:3px;</string>
     <zorder>PBB3</zorder>
     <zorder>PBB2</zorder>
     <zorder>PBB1</zorder>
-    <zorder>LEName_2</zorder>
+    <zorder>LEPolicynum</zorder>
     <zorder>label_17</zorder>
     <zorder>label_18</zorder>
     <zorder>label_19</zorder>
-    <zorder>doubleSpinBox</zorder>
-    <zorder>dateEdit</zorder>
+    <zorder>DSBDiscount</zorder>
+    <zorder>DEStart</zorder>
    </widget>
    <widget class="QWidget" name="tab_6">
     <attribute name="title">

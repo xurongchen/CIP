@@ -29,6 +29,7 @@
 #define POLICY_ADD_SUCCESS 0
 #define POLICY_ADD_ERROR_SAME_POLICYID -1
 #define POLICY_ADD_ERROR_IMPORTANT_INFO_EMPTY -2
+#define POLICY_DEL_SUCCESS 0
 
 #define RECIDEL 0
 #define SENDDEL 1
@@ -77,6 +78,7 @@ public:
 class Policy
 {
 private:
+    int id;
     QString policyid, clientname, clientcard, carnumber, carstyle;
     int carvalue;
     double discount;
@@ -86,7 +88,9 @@ public:
            QString _carnumber,QString _carstyle,
            int _carvalue,double _discount,
            QDate _startdate);
-    int add();
+    Policy(int _id);
+    int add(int& Policyid);
+    int del();
 };
 
 #endif // DBOPERATION_H

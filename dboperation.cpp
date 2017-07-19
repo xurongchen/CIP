@@ -155,7 +155,12 @@ Policy::Policy(QString _policyid, QString _clientname, QString _clientcard,
     startdate = _startdate;
 }
 
-int Policy::add()
+Policy::Policy(int _id)
+{
+    id = _id;
+}
+
+int Policy::add(int& Policyid)
 {
     if(policyid==NULL||clientname==NULL||clientcard==NULL||carnumber==NULL||carstyle==NULL)
         return POLICY_ADD_ERROR_IMPORTANT_INFO_EMPTY;
@@ -171,8 +176,17 @@ int Policy::add()
     QString str = time.toString("yyyy-MM-dd"); //设置显示格式
     QString str2 = startdate.toString("yyyy-MM-dd"); //设置显示格式
     query.exec(QString("insert into PolicyList values"
-                       "( %1, '%2', '%3', '%4', '%5'', '%6', %7, '%8', '%9', %10, %11)")
+                       "( %1, '%2', '%3', '%4', '%5', '%6', %7, '%8', '%9', %10, %11)")
                .arg(newid).arg(policyid).arg(clientname).arg(clientcard).arg(carnumber).arg(carstyle)
                .arg(carvalue).arg(str).arg(str2).arg(discount).arg(get_currentuser()));
+    Policyid = newid;
     return POLICY_ADD_SUCCESS;
+}
+
+int Policy::del()
+{
+    QSqlDatabase db = QSqlDatabase::database("connection");
+    QSqlQuery query(db);
+    query.exec(QString("delete from PolicyList where Id=%1").arg(id));
+    return POLICY_DEL_SUCCESS;
 }
