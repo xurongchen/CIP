@@ -180,7 +180,7 @@ outline: none}
       </rect>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="PBSerch">
      <property name="geometry">
       <rect>
        <x>380</x>
@@ -193,7 +193,7 @@ outline: none}
       <string>搜索</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_2">
+    <widget class="QPushButton" name="PBDetail">
      <property name="geometry">
       <rect>
        <x>380</x>
@@ -214,6 +214,19 @@ outline: none}
        <width>113</width>
        <height>20</height>
       </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="PBFinshserch">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>80</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>结束搜索</string>
      </property>
     </widget>
    </widget>

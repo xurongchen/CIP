@@ -4,6 +4,7 @@
 #include "currentuser.h"
 #include "information.h"
 #include "insurance.h"
+#include "pop.h"
 #include <QString>
 #include <string>
 #include <QBitmap>
@@ -295,21 +296,24 @@ void ManagerOper::on_PBSend_clicked()
     User u(strsend);
     int message = u.query();
     if(message==QUERY_NO_USER&&strsend!=NULL)
-        QMessageBox::critical(0, "ERROR",
-                    "NO SUCH USER!", QMessageBox::Cancel);
+        //QMessageBox::critical(0, "ERROR",
+        //            "NO SUCH USER!", QMessageBox::Cancel);
+        show_word(QString::fromLocal8Bit("错误！"), QString::fromLocal8Bit("该用户不存在！"));
     else if(strsend!=NULL)
     {
         Info i(get_currentuser(),message,contentsend);
         i.add();
-        QMessageBox::information(0, "SUCCESS",
-                    QString("A MESSAGE HAS BEEN SENT TO %1!").arg(strsend), QMessageBox::Ok);
+        //QMessageBox::information(0, "SUCCESS",
+        //            QString("A MESSAGE HAS BEEN SENT TO %1!").arg(strsend), QMessageBox::Ok);
+        show_word(QString::fromLocal8Bit("成功！"), QString::fromLocal8Bit("一个消息已经发送给了%1!").arg(strsend));
     }
     else
     {
         Info i(get_currentuser(),-1,contentsend);
         i.add();
-        QMessageBox::information(0, "SUCCESS",
-                    QString("A MESSAGE HAS BEEN BROADCAST!"), QMessageBox::Ok);
+        //QMessageBox::information(0, "SUCCESS",
+        //            QString("A MESSAGE HAS BEEN BROADCAST!"), QMessageBox::Ok);
+        show_word(QString::fromLocal8Bit("成功！"), QString::fromLocal8Bit("一个消息已经广播给了所有用户！"));
     }
     send_renew(infosend);
     ui->TVSend->setModel(infosend);
@@ -357,8 +361,9 @@ void ManagerOper::on_PBReciDel_clicked()
     Info i(datatemp.toInt());
     int message = i.del(RECIDEL);
     if(message==INFO_DEL_FAILED_NO_PERMISSION)
-        QMessageBox::critical(0, "ERROR",
-                    QString("THIS IS A BROADCAST,ONLY SENDER CAN DELETE IN SEND TABLE!"), QMessageBox::Cancel);
+        //QMessageBox::critical(0, "ERROR",
+        //            QString("THIS IS A BROADCAST,ONLY SENDER CAN DELETE IN SEND TABLE!"), QMessageBox::Cancel);
+        show_word(QString::fromLocal8Bit("错误！"), QString::fromLocal8Bit("广播消息只能被发送者在发送界面删除。"));
     send_renew(infosend);
     ui->TVSend->setModel(infosend);
     ui->TVSend->setColumnWidth(3,0);
@@ -384,8 +389,9 @@ void ManagerOper::on_PBDele_clicked()
                 int(ui->SBCostfxed->value()),
                 ui->DSBCostfloat->value());
     i.add();
-    QMessageBox::information(0, "SUCCESS",
-                QString("ADD INSURANCE SUCCESS!"), QMessageBox::Cancel);
+    //QMessageBox::information(0, "SUCCESS",
+    //           QString("ADD INSURANCE SUCCESS!"), QMessageBox::Cancel);
+    show_word(QString::fromLocal8Bit("成功！"), QString::fromLocal8Bit("一个新保险已成功添加！"));
     ui->LEInsurancename->clear();
     ui->SBCostfxed->setValue(0);
     ui->DSBCostfloat->setValue(0);
