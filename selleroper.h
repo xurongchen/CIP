@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QMouseEvent>
+#include <QStandardItemModel>
 
 namespace Ui {
     class SellerOper;
@@ -16,7 +17,8 @@ public:
     explicit SellerOper(QWidget *parent = 0);
     ~SellerOper();
     void closeEvent(QCloseEvent *);
-    int PolicyId;
+    int PolicyId;    
+    QStandardItemModel *infosend, *inforeci;
 
 private slots:
     bool closeWidget();
@@ -68,6 +70,16 @@ private slots:
     void on_PBWork2_clicked();
 
     void on_PBMessage2_clicked();
+
+    void on_PBSendDel_clicked();
+
+    void on_PBSendClear_clicked();
+
+    void on_PBReciDel_clicked();
+
+    void on_PBReciClear_clicked();
+
+    void on_PBSend_clicked();
 
 private:
     Ui::SellerOper *ui;

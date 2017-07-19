@@ -138,7 +138,7 @@ outline: none}
     </rect>
    </property>
    <property name="currentIndex">
-    <number>5</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -632,6 +632,64 @@ outline: none}
       <string>我的接收</string>
      </property>
     </widget>
+    <widget class="QPushButton" name="PBSendDel">
+     <property name="geometry">
+      <rect>
+       <x>246</x>
+       <y>240</y>
+       <width>81</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#PBSendDel{color: rgb(255, 255, 255);
+background-color: rgb(99, 99, 99);
+font: 75 13pt &quot;微软雅黑&quot;;
+border-radius:4px;
+outline: none}
+#PBSendDel:hover{background-color: rgb(135, 135, 135);}
+#PBSendDel:pressed{background-color: rgb(99, 99, 99);}</string>
+     </property>
+     <property name="text">
+      <string>删除消息</string>
+     </property>
+    </widget>
+    <widget class="QTableView" name="TVSend">
+     <property name="geometry">
+      <rect>
+       <x>186</x>
+       <y>70</y>
+       <width>351</width>
+       <height>160</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(190, 190, 190);
+alternate-background-color: rgb(0, 255, 0);</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="PBSendClear">
+     <property name="geometry">
+      <rect>
+       <x>390</x>
+       <y>240</y>
+       <width>81</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#PBSendClear{color: rgb(255, 255, 255);
+background-color: rgb(99, 99, 99);
+font: 75 13pt &quot;微软雅黑&quot;;
+border-radius:4px;
+outline: none}
+#PBSendClear:hover{background-color: rgb(135, 135, 135);}
+#PBSendClear:pressed{background-color: rgb(99, 99, 99);}</string>
+     </property>
+     <property name="text">
+      <string>清空消息</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="tab_4">
     <attribute name="title">
@@ -701,6 +759,63 @@ outline: none}
      </property>
      <property name="text">
       <string>我的接收</string>
+     </property>
+    </widget>
+    <widget class="QTableView" name="TVReci">
+     <property name="geometry">
+      <rect>
+       <x>186</x>
+       <y>70</y>
+       <width>351</width>
+       <height>160</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(190, 190, 190);</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="PBReciClear">
+     <property name="geometry">
+      <rect>
+       <x>390</x>
+       <y>240</y>
+       <width>81</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#PBReciClear{color: rgb(255, 255, 255);
+background-color: rgb(99, 99, 99);
+font: 75 13pt &quot;微软雅黑&quot;;
+border-radius:4px;
+outline: none}
+#PBReciClear:hover{background-color: rgb(135, 135, 135);}
+#PBReciClear:pressed{background-color: rgb(99, 99, 99);}</string>
+     </property>
+     <property name="text">
+      <string>清空消息</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="PBReciDel">
+     <property name="geometry">
+      <rect>
+       <x>246</x>
+       <y>240</y>
+       <width>81</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#PBReciDel{color: rgb(255, 255, 255);
+background-color: rgb(99, 99, 99);
+font: 75 13pt &quot;微软雅黑&quot;;
+border-radius:4px;
+outline: none}
+#PBReciDel:hover{background-color: rgb(135, 135, 135);}
+#PBReciDel:pressed{background-color: rgb(99, 99, 99);}</string>
+     </property>
+     <property name="text">
+      <string>删除消息</string>
      </property>
     </widget>
    </widget>
