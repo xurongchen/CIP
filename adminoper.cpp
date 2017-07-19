@@ -52,7 +52,8 @@ AdminOper::AdminOper(QWidget *parent) :
     //设置列宽不可变动，即不能通过鼠标拖动增加列宽
     ui->TVSend->horizontalHeader()->setResizeMode(0, QHeaderView::Fixed);
     ui->TVSend->horizontalHeader()->setResizeMode(1, QHeaderView::Fixed);
-    ui->TVSend->horizontalHeader()->setResizeMode(2, QHeaderView::Fixed);
+    //ui->TVSend->horizontalHeader()->setResizeMode(2, QHeaderView::Fixed);
+    ui->TVSend->horizontalHeader()->setResizeMode(2, QHeaderView::ResizeToContents);
     //ui->TVSend->horizontalHeader()->setResizeMode(3, QHeaderView::Fixed);
     //设置表格的各列的宽度值
     ui->TVSend->setColumnWidth(0,70);
@@ -78,7 +79,8 @@ AdminOper::AdminOper(QWidget *parent) :
     //设置列宽不可变动，即不能通过鼠标拖动增加列宽
     ui->TVReci->horizontalHeader()->setResizeMode(0, QHeaderView::Fixed);
     ui->TVReci->horizontalHeader()->setResizeMode(1, QHeaderView::Fixed);
-    ui->TVReci->horizontalHeader()->setResizeMode(2, QHeaderView::Fixed);
+    //ui->TVReci->horizontalHeader()->setResizeMode(2, QHeaderView::Fixed);
+    ui->TVReci->horizontalHeader()->setResizeMode(2, QHeaderView::ResizeToContents);
     //ui->TVReci->horizontalHeader()->setResizeMode(3, QHeaderView::Fixed);
     //设置表格的各列的宽度值
     ui->TVReci->setColumnWidth(0,70);
