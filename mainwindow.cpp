@@ -5,6 +5,7 @@
 #include "selleroper.h"
 #include "manageroper.h"
 #include "currentuser.h"
+#include "pop.h"
 #include <QString>
 #include <string>
 #include <QBitmap>
@@ -87,8 +88,9 @@ void MainWindow::on_PBLogin_clicked()
     QString Password = ui->LEPswd->text();
     if(Username==NULL)
     {
-        QMessageBox::critical(0, "ERROR",
-                    "USERNAME IS EMPTY!", QMessageBox::Cancel);
+//        QMessageBox::critical(0, "ERROR",
+//                    "USERNAME IS EMPTY!", QMessageBox::Cancel);
+        show_word(QString::fromLocal8Bit("´íÎó£¡"), QString::fromLocal8Bit("ÕËºÅ²»ÄÜÎª¿Õ£¡"));
         return;
     }
     QSqlDatabase db = QSqlDatabase::database("connection");
@@ -96,8 +98,9 @@ void MainWindow::on_PBLogin_clicked()
     query.exec("select * from UserList where Name='"+Username+"'");
     if(!query.first())
     {
-        QMessageBox::critical(0, "ERROR",
-                    "No such user!", QMessageBox::Cancel);
+//        QMessageBox::critical(0, "ERROR",
+//                    "No such user!", QMessageBox::Cancel);
+        show_word(QString::fromLocal8Bit("´íÎó£¡"), QString::fromLocal8Bit("¸ÃÕËºÅ²»´æÔÚ£¡"));
         ui->LEUser->clear();
         ui->LEPswd->clear();
         ui->LEUser->setFocus();
@@ -107,8 +110,9 @@ void MainWindow::on_PBLogin_clicked()
         QString qstr = query.value(2).toString();
         if(qstr!=Password)
         {
-            QMessageBox::critical(0, "ERROR",
-                        "Wrong Password!", QMessageBox::Cancel);
+//            QMessageBox::critical(0, "ERROR",
+//                        "Wrong Password!", QMessageBox::Cancel);
+            show_word(QString::fromLocal8Bit("´íÎó£¡"), QString::fromLocal8Bit("ÃÜÂë´íÎó£¡"));
             ui->LEPswd->clear();
             ui->LEPswd->setFocus();
         }

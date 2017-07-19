@@ -19,7 +19,8 @@ SOURCES += main.cpp\
     currentuser.cpp \
     selleroper.cpp \
     information.cpp \
-    manageroper.cpp
+    manageroper.cpp \
+    pop.cpp
 
 HEADERS  += mainwindow.h \
     dbconnect.h \
@@ -29,12 +30,14 @@ HEADERS  += mainwindow.h \
     currentuser.h \
     selleroper.h \
     information.h \
-    manageroper.h
+    manageroper.h \
+    pop.h
 
 FORMS    += mainwindow.ui \
     adminoper.ui \
     selleroper.ui \
-    manageroper.ui
+    manageroper.ui \
+    pop.ui
 
 RESOURCES += \
     new.qrc

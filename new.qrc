@@ -40,5 +40,6 @@
         <file>adm_3.png</file>
         <file>xadm_2.png</file>
         <file>xadm_3.png</file>
+        <file>pop.png</file>
     </qresource>
 </RCC>
