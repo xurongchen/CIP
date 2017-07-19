@@ -482,3 +482,13 @@ void SellerOper::on_PBSend_clicked()
     ui->TVReci->setModel(inforeci);
     ui->TVReci->setColumnWidth(3,0);
 }
+
+void SellerOper::on_pushButton_clicked()
+{
+
+
+
+
+
+    PolicyId = -1;
+}

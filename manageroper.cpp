@@ -3,6 +3,7 @@
 #include "dboperation.h"
 #include "currentuser.h"
 #include "information.h"
+#include "insurance.h"
 #include <QString>
 #include <string>
 #include <QBitmap>
@@ -105,11 +106,46 @@ ManagerOper::ManagerOper(QWidget *parent) :
     ui->TVReci->setEditTriggers(QAbstractItemView::NoEditTriggers);
     //如果你用在QTableView中使用右键菜单，需启用该属性
     ui->TVReci->setContextMenuPolicy(Qt::CustomContextMenu);
+
+
+
+
+    insurancelist=NULL;
+    //infosend
+    insurancelist_renew(insurancelist);
+    ui->TVInsurance->setModel(insurancelist);
+
+    //设置列宽不可变动，即不能通过鼠标拖动增加列宽
+    ui->TVInsurance->horizontalHeader()->setResizeMode(0, QHeaderView::Fixed);
+    ui->TVInsurance->horizontalHeader()->setResizeMode(1, QHeaderView::Fixed);
+    //ui->TVInsurance->horizontalHeader()->setResizeMode(2, QHeaderView::Fixed);
+    ui->TVInsurance->horizontalHeader()->setResizeMode(2, QHeaderView::ResizeToContents);
+    ui->TVInsurance->horizontalHeader()->setResizeMode(3, QHeaderView::Fixed);
+    ui->TVInsurance->horizontalHeader()->setResizeMode(4, QHeaderView::Fixed);
+    //设置表格的各列的宽度值
+    ui->TVInsurance->setColumnWidth(0,70);
+    ui->TVInsurance->setColumnWidth(1,80);
+    ui->TVInsurance->setColumnWidth(2,190);
+    ui->TVInsurance->setColumnWidth(3,100);
+    ui->TVInsurance->setColumnWidth(4,100);
+    ui->TVInsurance->setColumnWidth(5,0);
+    //默认显示行头，如果你觉得不美观的话，我们可以将隐藏
+    ui->TVInsurance->verticalHeader()->hide();
+    //设置选中时为整行选中
+    ui->TVInsurance->setSelectionBehavior(QAbstractItemView::SelectRows);
+
+    //设置表格的单元为只读属性，即不能编辑
+    ui->TVInsurance->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    //如果你用在QTableView中使用右键菜单，需启用该属性
+    ui->TVInsurance->setContextMenuPolicy(Qt::CustomContextMenu);
+
+
 }
 
 ManagerOper::~ManagerOper()
 {
     delete ui;
+    insurancelist_delete(insurancelist);
 }
 
 void ManagerOper::mousePressEvent(QMouseEvent *e) //鼠标点击界面
@@ -180,6 +216,8 @@ void ManagerOper::on_PBView_clicked()
 
 void ManagerOper::on_PBAdd_clicked()
 {
+    insurancelist_renew(insurancelist);
+    ui->TVInsurance->setModel(insurancelist);
     ui->tabWidget->setCurrentIndex(1);
 }
 
@@ -245,6 +283,8 @@ void ManagerOper::on_PBAdd2_clicked()
 
 void ManagerOper::on_PBView2_clicked()
 {
+    insurancelist_renew(insurancelist);
+    ui->TVInsurance->setModel(insurancelist);
     ui->tabWidget->setCurrentIndex(0);
 }
 

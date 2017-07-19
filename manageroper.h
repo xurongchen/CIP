@@ -17,7 +17,7 @@ public:
     explicit ManagerOper(QWidget *parent = 0);
     ~ManagerOper();
     void closeEvent(QCloseEvent *);
-    QStandardItemModel *infosend, *inforeci;
+    QStandardItemModel *infosend, *inforeci, *insurancelist;
 
 private slots:
     bool closeWidget();
