@@ -2,6 +2,7 @@
 #include "currentuser.h"
 #include <QSqlDatabase>
 #include <QSqlQuery>
+#include <QStandardItemModel>
 
 void send_renew(QStandardItemModel *&tb)
 {
