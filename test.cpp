@@ -2,7 +2,7 @@
 
 void test()
 {
-    db_user_add_test();
+    //db_user_add_test();
     //db_user_delete_test();
     //db_info_add_test();
     //db_insurance_add_test();

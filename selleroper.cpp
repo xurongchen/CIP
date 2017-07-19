@@ -1,12 +1,13 @@
 #include "selleroper.h"
 #include "ui_selleroper.h"
+#include "dboperation.h"
 #include <QString>
 #include <string>
 #include <QBitmap>
 #include <QPainter>
 #include <QDebug>
 #include <QPropertyAnimation>
-
+#include <QMessageBox>
 
 
 SellerOper::SellerOper(QWidget *parent) :
@@ -18,6 +19,7 @@ SellerOper::SellerOper(QWidget *parent) :
     ui->tabWidget->findChildren<QTabBar*>().at(0)->hide(); //tab标题栏隐藏
     flag = 0;
     flag2 = 0;
+    PolicyId = -1;
     this->setFixedSize(720,445); //设置固定大小
     this->setWindowFlags(Qt::FramelessWindowHint | Qt::WindowSystemMenuHint | Qt::WindowMinimizeButtonHint); //隐藏标题栏及最小化可见
 
@@ -32,17 +34,44 @@ SellerOper::SellerOper(QWidget *parent) :
     //连接关闭按钮和关闭动画
     connect(ui->PBClose, SIGNAL(clicked()), this, SLOT(closeWidget()));
 
-    ui->dateEdit->setMinimumDate(QDate::currentDate().addDays(0));
-    ui->dateEdit->setMaximumDate(QDate::currentDate().addDays(365));  // +365天
-    ui->dateEdit->setCalendarPopup(true);  // 日历弹出
-    //ui->dateEdit->setCalendarWidget();
+    ui->DEStart->setMinimumDate(QDate::currentDate().addDays(0));
+    ui->DEStart->setMaximumDate(QDate::currentDate().addDays(365));  // +365天
+    ui->DEStart->setCalendarPopup(true);  // 日历弹出
+    //ui->DEStart->setCalendarWidget();
 
     ui->tabWidget->setCurrentIndex(0);
+
+    QRegExp regExp_ID_Card("^((1[1-5])|(2[1-3])|(3[1-7])|(4[1-6])|(5[0-4])|(6[1-5])|71|(8[12])|91)\\d{4}((19\\d{2}(0[13-9]|1[012])(0[1-9]|[12]\\d|30))|(19\\d{2}(0[13578]|1[02])31)|(19\\d{2}02(0[1-9]|1\\d|2[0-8]))|(19([13579][26]|[2468][048]|0[48])0229))\\d{3}(\\d|X|x)?$");
+    ui->LECard->setValidator(new QRegExpValidator(regExp_ID_Card,this));
+
+    QRegExp regExp_Car_Number(QString::fromLocal8Bit("^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}[A-Z0-9]{4}[A-Z0-9挂学警港澳]{1}$"));
+    ui->LENum->setValidator(new QRegExpValidator(regExp_Car_Number,this));
+
+    ui->SBPrice->setRange(5000, 50000000);  // 范围
+    ui->SBPrice->setSingleStep(100000); // 步长
+    ui->SBPrice->setValue(100000);  // 当前值
+    ui->SBPrice->setPrefix(QString::fromLocal8Bit("￥ "));  // 前缀
+    ui->SBPrice->setSuffix(QString::fromLocal8Bit(" 元"));  // 后缀
+
+    ui->DSBDiscount->setRange(0, 1); // 范围
+    ui->DSBDiscount->setDecimals(3);  // 精度
+    ui->DSBDiscount->setSingleStep(0.01); // 步长
+    ui->DSBDiscount->setSuffix(QString::fromLocal8Bit(" %"));
+    ui->DSBDiscount->setValue(0);  // 当前值
+    ui->DSBDiscount->setSpecialValueText(QString::fromLocal8Bit("无折扣"));  // 特殊文本值
+
+
+
 }
 
 SellerOper::~SellerOper()
 {
     delete ui;
+    if(PolicyId!=-1)
+    {
+        Policy p(PolicyId);
+        p.del();
+    }
 }
 
 void SellerOper::mousePressEvent(QMouseEvent *e) //鼠标点击界面
@@ -194,17 +223,104 @@ void SellerOper::on_PBC2_clicked()
 
 void SellerOper::on_PBA3_clicked()
 {
-    ui->tabWidget->setCurrentIndex(5);
+    Policy p(ui->LEPolicynum->text(),
+             ui->LEName->text(),
+             ui->LECard->text(),
+             ui->LENum->text(),
+             ui->LEStyle->text(),
+             int(ui->SBPrice->value()),
+             ui->DSBDiscount->value(),
+             ui->DEStart->date());
+    if(PolicyId!=-1)
+    {
+        Policy pdel(PolicyId);
+        pdel.del();
+    }
+    int message = p.add(PolicyId);
+    if(message==POLICY_ADD_ERROR_IMPORTANT_INFO_EMPTY)
+    {
+        QMessageBox::critical(0, "ERROR",
+                    QString("SOMETHING IS NULL!"), QMessageBox::Cancel);
+        ui->tabWidget->setCurrentIndex(0);
+    }
+    if(message==POLICY_ADD_ERROR_SAME_POLICYID)
+    {
+        QMessageBox::critical(0, "ERROR",
+                    QString("POLICYID HAS USED!"), QMessageBox::Cancel);
+        ui->tabWidget->setCurrentIndex(4);
+    }
+    if(message==POLICY_ADD_SUCCESS)
+    {
+        ui->tabWidget->setCurrentIndex(5);
+    }
 }
 
 void SellerOper::on_PBB3_clicked()
 {
-    ui->tabWidget->setCurrentIndex(5);
+    Policy p(ui->LEPolicynum->text(),
+             ui->LEName->text(),
+             ui->LECard->text(),
+             ui->LENum->text(),
+             ui->LEStyle->text(),
+             int(ui->SBPrice->value()),
+             ui->DSBDiscount->value(),
+             ui->DEStart->date());
+    if(PolicyId!=-1)
+    {
+        Policy pdel(PolicyId);
+        pdel.del();
+    }
+    int message = p.add(PolicyId);
+    if(message==POLICY_ADD_ERROR_IMPORTANT_INFO_EMPTY)
+    {
+        QMessageBox::critical(0, "ERROR",
+                    QString("SOMETHING IS NULL!"), QMessageBox::Cancel);
+        ui->tabWidget->setCurrentIndex(0);
+    }
+    if(message==POLICY_ADD_ERROR_SAME_POLICYID)
+    {
+        QMessageBox::critical(0, "ERROR",
+                    QString("POLICYID HAS USED!"), QMessageBox::Cancel);
+        ui->tabWidget->setCurrentIndex(4);
+    }
+    if(message==POLICY_ADD_SUCCESS)
+    {
+        ui->tabWidget->setCurrentIndex(5);
+    }
 }
 
 void SellerOper::on_PBC3_clicked()
 {
-    ui->tabWidget->setCurrentIndex(5);
+    Policy p(ui->LEPolicynum->text(),
+             ui->LEName->text(),
+             ui->LECard->text(),
+             ui->LENum->text(),
+             ui->LEStyle->text(),
+             int(ui->SBPrice->value()),
+             ui->DSBDiscount->value(),
+             ui->DEStart->date());
+    if(PolicyId!=-1)
+    {
+        Policy pdel(PolicyId);
+        pdel.del();
+    }
+    int message = p.add(PolicyId);
+    if(message==POLICY_ADD_ERROR_IMPORTANT_INFO_EMPTY)
+    {
+        QMessageBox::critical(0, "ERROR",
+                    QString("SOMETHING IS NULL!"), QMessageBox::Cancel);
+        ui->tabWidget->setCurrentIndex(0);
+    }
+    if(message==POLICY_ADD_ERROR_SAME_POLICYID)
+    {
+        QMessageBox::critical(0, "ERROR",
+                    QString("POLICYID HAS USED!"), QMessageBox::Cancel);
+        ui->tabWidget->setCurrentIndex(4);
+    }
+    if(message==POLICY_ADD_SUCCESS)
+    {
+        ui->tabWidget->setCurrentIndex(5);
+    }
 }
 
 void SellerOper::on_PBWork2_clicked()

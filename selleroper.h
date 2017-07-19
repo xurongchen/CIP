@@ -16,6 +16,7 @@ public:
     explicit SellerOper(QWidget *parent = 0);
     ~SellerOper();
     void closeEvent(QCloseEvent *);
+    int PolicyId;
 
 private slots:
     bool closeWidget();

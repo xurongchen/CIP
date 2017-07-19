@@ -36,13 +36,14 @@ static bool createConnection()
                "CarValue int,"
                "PolicyTime date,"
                "StartTime date,"
-               "Discount double"
+               "Discount double,"
                "UserId int)");
 
     query.exec("create table InsuranceList (Id int primary key, "
                "Name varchar(32),"
-               "FixedCost double,"
-               "FloatCost double)");
+               "FixedCost int,"
+               "FloatCost double,"
+               "Work int)");
 
     query.exec("create table PolicyInsuranceRelationList (Id int primary key, "
                "PolicyId int,"
