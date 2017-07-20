@@ -5,6 +5,7 @@
 #include "information.h"
 #include "policyinsurance.h"
 #include "insurance.h"
+#include "detail.h"
 #include "pop.h"
 #include <QString>
 #include <string>
@@ -144,6 +145,7 @@ ManagerOper::ManagerOper(QWidget *parent) :
     //如果你用在QTableView中使用右键菜单，需启用该属性
     ui->TVInsurance->setContextMenuPolicy(Qt::CustomContextMenu);
 
+    insuranceget_init();
 
     insuranceall=NULL;
     //insuranceall
@@ -172,7 +174,7 @@ ManagerOper::ManagerOper(QWidget *parent) :
     //如果你用在QTableView中使用右键菜单，需启用该属性
     ui->TVInsuranceall->setContextMenuPolicy(Qt::CustomContextMenu);
 
-    insuranceget_init();
+
 }
 
 ManagerOper::~ManagerOper()
@@ -478,4 +480,14 @@ void ManagerOper::on_PBDel_clicked()
     ui->TVInsuranceall->setModel(insuranceall);
     ui->TVInsuranceall->setColumnWidth(3,0);
 
+}
+
+void ManagerOper::on_PBDetail_clicked()
+{
+    int curRow=ui->TVInsurance->currentIndex().row(); //选中行
+    QAbstractItemModel *modessl = ui->TVInsurance->model();
+    QModelIndex indextemp = modessl->index(curRow,5);//遍历第一行的所有列,i是你要取值的列的下标
+    //这个是一个单元格的值。tostring()----ok
+    QVariant datatemp = modessl->data(indextemp);
+    call_detail(datatemp.toInt());
 }

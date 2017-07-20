@@ -571,7 +571,7 @@ void SellerOper::on_PBSET_clicked()
     }
     for(int row=0;row<rownum;row++)
     {
-        QAbstractItemModel *modessl = ui->TVInsuranceall->model();
+        QAbstractItemModel *modessl = ui->TVInsuranceget->model();
         QModelIndex indextemp = modessl->index(row,3);
         QVariant datatemp = modessl->data(indextemp);
         PolicyInsurance p(PolicyId,datatemp.toInt());
