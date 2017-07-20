@@ -68,9 +68,9 @@ void Detail::set_policyid(int _policyid)
     if(insurancelist!=NULL)
         delete insurancelist;
     insurancelist = new QStandardItemModel();
-    insurancelist->setHorizontalHeaderItem(0, new QStandardItem(QObject::tr("name")));
-    insurancelist->setHorizontalHeaderItem(1, new QStandardItem(QObject::tr("fixedcost")));
-    insurancelist->setHorizontalHeaderItem(2, new QStandardItem(QObject::tr("floatcost")));
+    insurancelist->setHorizontalHeaderItem(0, new QStandardItem(QString::fromLocal8Bit("车险名称")));
+    insurancelist->setHorizontalHeaderItem(1, new QStandardItem(QString::fromLocal8Bit("固定费用（元）")));
+    insurancelist->setHorizontalHeaderItem(2, new QStandardItem(QString::fromLocal8Bit("比例费用（%）")));
     query.exec(QString("select * from PolicyInsuranceRelationList where PolicyId=%1").arg(policyid));
     //query.first();
     int nowline = 0;

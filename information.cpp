@@ -9,9 +9,9 @@ void send_renew(QStandardItemModel *&tb)
     if(tb!=NULL)
         delete tb;
     tb = new QStandardItemModel();
-    tb->setHorizontalHeaderItem(0, new QStandardItem(QObject::tr("Time")));
-    tb->setHorizontalHeaderItem(1, new QStandardItem(QObject::tr("Reci")));
-    tb->setHorizontalHeaderItem(2, new QStandardItem(QObject::tr("Content")));
+    tb->setHorizontalHeaderItem(0, new QStandardItem(QString::fromLocal8Bit("时间")));
+    tb->setHorizontalHeaderItem(1, new QStandardItem(QString::fromLocal8Bit("接收人")));
+    tb->setHorizontalHeaderItem(2, new QStandardItem(QString::fromLocal8Bit("内容")));
 
     QSqlDatabase db = QSqlDatabase::database("connection");
     QSqlQuery query(db);
@@ -49,9 +49,9 @@ void reci_renew(QStandardItemModel *&tb)
     if(tb!=NULL)
         delete tb;
     tb = new QStandardItemModel();
-    tb->setHorizontalHeaderItem(0, new QStandardItem(QObject::tr("Time")));
-    tb->setHorizontalHeaderItem(1, new QStandardItem(QObject::tr("Send")));
-    tb->setHorizontalHeaderItem(2, new QStandardItem(QObject::tr("Content")));
+    tb->setHorizontalHeaderItem(0, new QStandardItem(QString::fromLocal8Bit("时间")));
+    tb->setHorizontalHeaderItem(1, new QStandardItem(QString::fromLocal8Bit("发送人")));
+    tb->setHorizontalHeaderItem(2, new QStandardItem(QString::fromLocal8Bit("内容")));
 
     QSqlDatabase db = QSqlDatabase::database("connection");
     QSqlQuery query(db);

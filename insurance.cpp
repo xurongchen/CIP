@@ -8,11 +8,11 @@ void insurancelist_renew(QStandardItemModel *&tb)
     if(tb!=NULL)
         delete tb;
     tb = new QStandardItemModel();
-    tb->setHorizontalHeaderItem(0, new QStandardItem(QObject::tr("PolicyId")));
-    tb->setHorizontalHeaderItem(1, new QStandardItem(QObject::tr("Time")));
-    tb->setHorizontalHeaderItem(2, new QStandardItem(QObject::tr("CarNum")));
-    tb->setHorizontalHeaderItem(3, new QStandardItem(QObject::tr("Insured")));
-    tb->setHorizontalHeaderItem(4, new QStandardItem(QObject::tr("Operator")));
+    tb->setHorizontalHeaderItem(0, new QStandardItem(QString::fromLocal8Bit("保单号")));
+    tb->setHorizontalHeaderItem(1, new QStandardItem(QString::fromLocal8Bit("时间")));
+    tb->setHorizontalHeaderItem(2, new QStandardItem(QString::fromLocal8Bit("车牌号")));
+    tb->setHorizontalHeaderItem(3, new QStandardItem(QString::fromLocal8Bit("投保人姓名")));
+    tb->setHorizontalHeaderItem(4, new QStandardItem(QString::fromLocal8Bit("经办人")));
     QSqlDatabase db = QSqlDatabase::database("connection");
     QSqlQuery query(db);
     query.exec(QString("select * from PolicyList"));
@@ -40,11 +40,11 @@ void insurancelist_search(QStandardItemModel *&tb,QString str)
     if(tb!=NULL)
         delete tb;
     tb = new QStandardItemModel();
-    tb->setHorizontalHeaderItem(0, new QStandardItem(QObject::tr("PolicyId")));
-    tb->setHorizontalHeaderItem(1, new QStandardItem(QObject::tr("Time")));
-    tb->setHorizontalHeaderItem(2, new QStandardItem(QObject::tr("CarNum")));
-    tb->setHorizontalHeaderItem(3, new QStandardItem(QObject::tr("Insured")));
-    tb->setHorizontalHeaderItem(4, new QStandardItem(QObject::tr("Operator")));
+    tb->setHorizontalHeaderItem(0, new QStandardItem(QString::fromLocal8Bit("保单号")));
+    tb->setHorizontalHeaderItem(1, new QStandardItem(QString::fromLocal8Bit("时间")));
+    tb->setHorizontalHeaderItem(2, new QStandardItem(QString::fromLocal8Bit("车牌号")));
+    tb->setHorizontalHeaderItem(3, new QStandardItem(QString::fromLocal8Bit("投保人姓名")));
+    tb->setHorizontalHeaderItem(4, new QStandardItem(QString::fromLocal8Bit("经办人")));
     QSqlDatabase db = QSqlDatabase::database("connection");
     QSqlQuery query(db);
     query.exec(QString("select * from PolicyList where PolicyId like '%%%1%%' or PolicyTime like '%%%1%%' or Insured like '%%%1%%' or CarNumber like '%%%1%%'").arg(str));
