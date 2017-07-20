@@ -129,6 +129,19 @@ Insurance::Insurance(QString _name, int _fixedcost, double _floatcost)
     floatcost = _floatcost;
 }
 
+Insurance::Insurance(int _id)
+{
+    id = _id;
+}
+
+int Insurance::del()
+{
+    QSqlDatabase db = QSqlDatabase::database("connection");
+    QSqlQuery query(db);
+    query.exec(QString("update InsuranceList set Work=0 where Id=%1").arg(id));
+    return INSURANCE_DELETE_SUCCESS;
+}
+
 int Insurance::add()
 {
     QSqlDatabase db = QSqlDatabase::database("connection");
@@ -187,7 +200,7 @@ int Policy::del()
 {
     QSqlDatabase db = QSqlDatabase::database("connection");
     QSqlQuery query(db);
-    query.exec(QString("update InsuranceList set Work=0 where Id=%1").arg(id));
+    query.exec(QString("delete from PolicyList where Id=%1").arg(id));
     return POLICY_DEL_SUCCESS;
 }
 
