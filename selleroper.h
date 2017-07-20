@@ -18,7 +18,7 @@ public:
     ~SellerOper();
     void closeEvent(QCloseEvent *);
     int PolicyId;    
-    QStandardItemModel *infosend, *inforeci;
+    QStandardItemModel *infosend, *inforeci, *insuranceget, *insuranceall;
 
 private slots:
     bool closeWidget();
@@ -81,7 +81,11 @@ private slots:
 
     void on_PBSend_clicked();
 
-    void on_pushButton_clicked();
+    void on_PBSET_clicked();
+
+    void on_PBAdd_clicked();
+
+    void on_PBDel_clicked();
 
 private:
     Ui::SellerOper *ui;
