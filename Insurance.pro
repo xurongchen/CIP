@@ -10,6 +10,7 @@ QT       += core gui\
 TARGET = Insurance
 TEMPLATE = app
 
+RC_FILE = icon.rc
 
 SOURCES += main.cpp\
         mainwindow.cpp \

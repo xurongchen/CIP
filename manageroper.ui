@@ -289,7 +289,7 @@ color: rgb(255, 255, 255);</string>
     <widget class="QLineEdit" name="LEInsurancename">
      <property name="geometry">
       <rect>
-       <x>230</x>
+       <x>270</x>
        <y>90</y>
        <width>151</width>
        <height>21</height>
@@ -304,7 +304,7 @@ border-radius:3px;</string>
     <widget class="QPushButton" name="PBDele">
      <property name="geometry">
       <rect>
-       <x>430</x>
+       <x>480</x>
        <y>100</y>
        <width>91</width>
        <height>141</height>
@@ -328,7 +328,7 @@ outline: none}
     <widget class="QLabel" name="label_9">
      <property name="geometry">
       <rect>
-       <x>90</x>
+       <x>130</x>
        <y>80</y>
        <width>101</width>
        <height>31</height>
@@ -345,7 +345,7 @@ color: rgb(255, 255, 255);</string>
     <widget class="QLabel" name="label_10">
      <property name="geometry">
       <rect>
-       <x>90</x>
+       <x>130</x>
        <y>150</y>
        <width>101</width>
        <height>31</height>
@@ -362,7 +362,7 @@ color: rgb(255, 255, 255);</string>
     <widget class="QLabel" name="label_12">
      <property name="geometry">
       <rect>
-       <x>90</x>
+       <x>130</x>
        <y>220</y>
        <width>101</width>
        <height>31</height>
@@ -379,7 +379,7 @@ color: rgb(255, 255, 255);</string>
     <widget class="QSpinBox" name="SBCostfxed">
      <property name="geometry">
       <rect>
-       <x>230</x>
+       <x>270</x>
        <y>160</y>
        <width>151</width>
        <height>22</height>
@@ -393,7 +393,7 @@ border-radius:3px;</string>
     <widget class="QDoubleSpinBox" name="DSBCostfloat">
      <property name="geometry">
       <rect>
-       <x>230</x>
+       <x>270</x>
        <y>230</y>
        <width>151</width>
        <height>22</height>
@@ -407,27 +407,45 @@ border-radius:3px;</string>
     <widget class="QPushButton" name="PBAdd_2">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>80</y>
-       <width>75</width>
+       <x>0</x>
+       <y>110</y>
+       <width>81</width>
        <height>23</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">#PBAdd_2{color: rgb(255, 255, 255);
+background-color: rgb(99, 99, 99);
+font: 75 13pt &quot;微软雅黑&quot;;
+border-radius:4px;
+outline: none}
+#PBAdd_2:hover{background-color: rgb(135, 135, 135);}
+#PBAdd_2:pressed{background-color: rgb(99, 99, 99);}</string>
+     </property>
      <property name="text">
-      <string>add</string>
+      <string>添加</string>
      </property>
     </widget>
     <widget class="QPushButton" name="PBLook">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>140</y>
-       <width>75</width>
+       <x>0</x>
+       <y>200</y>
+       <width>81</width>
        <height>23</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">#PBLook{color: rgb(255, 255, 255);
+background-color: rgb(99, 99, 99);
+font: 75 13pt &quot;微软雅黑&quot;;
+border-radius:4px;
+outline: none}
+#PBALook:hover{background-color: rgb(135, 135, 135);}
+#PBALook:pressed{background-color: rgb(99, 99, 99);}</string>
+     </property>
      <property name="text">
-      <string>look/del</string>
+      <string>查看/删除</string>
      </property>
     </widget>
    </widget>
@@ -841,50 +859,81 @@ outline: none}
     <widget class="QPushButton" name="PBAdd_3">
      <property name="geometry">
       <rect>
-       <x>70</x>
+       <x>0</x>
        <y>110</y>
-       <width>75</width>
+       <width>81</width>
        <height>23</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">#PBAdd_3{color: rgb(255, 255, 255);
+background-color: rgb(99, 99, 99);
+font: 75 13pt &quot;微软雅黑&quot;;
+border-radius:4px;
+outline: none}
+#PBAdd_3:hover{background-color: rgb(135, 135, 135);}
+#PBAdd_3:pressed{background-color: rgb(99, 99, 99);}</string>
+     </property>
      <property name="text">
-      <string>add</string>
+      <string>添加</string>
      </property>
     </widget>
     <widget class="QPushButton" name="PBLook_2">
      <property name="geometry">
       <rect>
-       <x>70</x>
-       <y>170</y>
-       <width>75</width>
+       <x>0</x>
+       <y>200</y>
+       <width>81</width>
        <height>23</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">#PBLook_2{color: rgb(255, 255, 255);
+background-color: rgb(99, 99, 99);
+font: 75 13pt &quot;微软雅黑&quot;;
+border-radius:4px;
+outline: none}
+#PBALook_2:hover{background-color: rgb(135, 135, 135);}
+#PBALook_2:pressed{background-color: rgb(99, 99, 99);}</string>
+     </property>
      <property name="text">
-      <string>look/del</string>
+      <string>查看/删除</string>
      </property>
     </widget>
     <widget class="QTableView" name="TVInsuranceall">
      <property name="geometry">
       <rect>
-       <x>200</x>
+       <x>135</x>
        <y>50</y>
-       <width>256</width>
+       <width>321</width>
        <height>192</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(190, 190, 190);
+alternate-background-color: rgb(0, 255, 0);</string>
      </property>
     </widget>
     <widget class="QPushButton" name="PBDel">
      <property name="geometry">
       <rect>
-       <x>510</x>
-       <y>130</y>
-       <width>75</width>
+       <x>504</x>
+       <y>140</y>
+       <width>81</width>
        <height>23</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">#PBDel{color: rgb(255, 255, 255);
+background-color: rgb(99, 99, 99);
+font: 75 13pt &quot;微软雅黑&quot;;
+border-radius:4px;
+outline: none}
+#PBDel:hover{background-color: rgb(135, 135, 135);}
+#PBDel:pressed{background-color: rgb(99, 99, 99);}</string>
+     </property>
      <property name="text">
-      <string>del</string>
+      <string>删除车险</string>
      </property>
     </widget>
    </widget>
@@ -927,7 +976,7 @@ outline: none;
 background-color: rgba(0, 0, 0, 0);</string>
    </property>
    <property name="text">
-    <string>添加保险</string>
+    <string>车险管理</string>
    </property>
    <property name="flat">
     <bool>false</bool>
