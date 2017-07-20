@@ -25,6 +25,7 @@
 #define INFO_DEL_FAILED_NO_PERMISSION -1
 
 #define INSURANCE_ADD_SUCCESS 0
+#define INSURANCE_DELETE_SUCCESS 0
 
 #define POLICY_ADD_SUCCESS 0
 #define POLICY_ADD_ERROR_SAME_POLICYID -1
@@ -70,12 +71,15 @@ void Current_user_reci_Info_clear();
 class Insurance
 {
 private:
+    int id;
     QString name;
     int fixedcost;
     double floatcost;
 public:
     Insurance(QString _name,int _fixedcost,double _floatcost);
+    Insurance(int _id);
     int add();
+    int del();
 };
 
 class Policy

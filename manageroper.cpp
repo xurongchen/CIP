@@ -478,7 +478,7 @@ void ManagerOper::on_PBDel_clicked()
     QModelIndex indextemp = modessl->index(curRow,3);//遍历第一行的所有列,i是你要取值的列的下标
     //这个是一个单元格的值。tostring()----ok
     QVariant datatemp = modessl->data(indextemp);
-    Policy i(datatemp.toInt());
+    Insurance i(datatemp.toInt());
     i.del();
     insuranceall_renew(insuranceall);
     ui->TVInsuranceall->setModel(insuranceall);
