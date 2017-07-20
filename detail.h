@@ -19,9 +19,22 @@ public:
     void set_policyid(int _policyid);
     QStandardItemModel *insurancelist;
 
+private slots:
+    void on_PBOk_clicked();
+
+    void on_PBClose_clicked();
+
 private:
     int policyid;
     Ui::Detail *ui;
+    int flag, flag2;
+    QPoint last;
+    QPoint judge;
+
+protected:
+    void mousePressEvent(QMouseEvent *e);
+    void mouseMoveEvent(QMouseEvent *e);
+    void mouseReleaseEvent(QMouseEvent *e);
 };
 
 void call_detail(int policyid);

@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">#Detail{border-image: url(:/new/prefix1/420-520.png)}</string>
+  </property>
   <widget class="QTableView" name="TVPolicycontent">
    <property name="geometry">
     <rect>
@@ -22,15 +25,28 @@
      <height>131</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(190, 190, 190);
+alternate-background-color: rgb(0, 255, 0);</string>
+   </property>
   </widget>
   <widget class="QPushButton" name="PBOk">
    <property name="geometry">
     <rect>
-     <x>170</x>
+     <x>174</x>
      <y>490</y>
-     <width>75</width>
+     <width>71</width>
      <height>23</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#PBOk{color: rgb(255, 255, 255);
+background-color: rgb(99, 99, 99);
+font: 75 12pt &quot;微软雅黑&quot;;
+border-radius:4px;
+outline: none}
+#PBOk:hover{background-color: rgb(135, 135, 135);}
+#PBOk:pressed{background-color: rgb(99, 99, 99);}</string>
    </property>
    <property name="text">
     <string>确认</string>
@@ -41,9 +57,13 @@
     <rect>
      <x>30</x>
      <y>60</y>
-     <width>41</width>
+     <width>51</width>
      <height>16</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font: 11pt &quot;微软雅黑&quot;;</string>
    </property>
    <property name="text">
     <string>保单号</string>
@@ -54,9 +74,13 @@
     <rect>
      <x>30</x>
      <y>90</y>
-     <width>61</width>
+     <width>81</width>
      <height>16</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font: 11pt &quot;微软雅黑&quot;;</string>
    </property>
    <property name="text">
     <string>投保人姓名</string>
@@ -67,9 +91,13 @@
     <rect>
      <x>30</x>
      <y>120</y>
-     <width>91</width>
+     <width>111</width>
      <height>16</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font: 11pt &quot;微软雅黑&quot;;</string>
    </property>
    <property name="text">
     <string>投保人证件号码</string>
@@ -80,9 +108,13 @@
     <rect>
      <x>30</x>
      <y>150</y>
-     <width>81</width>
+     <width>101</width>
      <height>16</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font: 11pt &quot;微软雅黑&quot;;</string>
    </property>
    <property name="text">
     <string>投保车辆车型</string>
@@ -93,9 +125,13 @@
     <rect>
      <x>30</x>
      <y>180</y>
-     <width>81</width>
+     <width>91</width>
      <height>16</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font: 11pt &quot;微软雅黑&quot;;</string>
    </property>
    <property name="text">
     <string>投保车辆车号</string>
@@ -106,9 +142,13 @@
     <rect>
      <x>30</x>
      <y>210</y>
-     <width>81</width>
+     <width>91</width>
      <height>16</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font: 11pt &quot;微软雅黑&quot;;</string>
    </property>
    <property name="text">
     <string>投保车辆车价</string>
@@ -119,9 +159,13 @@
     <rect>
      <x>30</x>
      <y>460</y>
-     <width>81</width>
+     <width>91</width>
      <height>16</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font: 11pt &quot;微软雅黑&quot;;</string>
    </property>
    <property name="text">
     <string>保单创建日期</string>
@@ -132,9 +176,13 @@
     <rect>
      <x>30</x>
      <y>240</y>
-     <width>81</width>
+     <width>91</width>
      <height>16</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font: 11pt &quot;微软雅黑&quot;;</string>
    </property>
    <property name="text">
     <string>保单生效日期</string>
@@ -144,10 +192,14 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>410</y>
+     <y>420</y>
      <width>31</width>
      <height>16</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font: 11pt &quot;微软雅黑&quot;;</string>
    </property>
    <property name="text">
     <string>优惠</string>
@@ -156,11 +208,15 @@
   <widget class="QLabel" name="label_10">
    <property name="geometry">
     <rect>
-     <x>210</x>
-     <y>410</y>
-     <width>51</width>
+     <x>220</x>
+     <y>420</y>
+     <width>61</width>
      <height>16</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font: 11pt &quot;微软雅黑&quot;;</string>
    </property>
    <property name="text">
     <string>保单总额</string>
@@ -169,11 +225,15 @@
   <widget class="QLabel" name="label_11">
    <property name="geometry">
     <rect>
-     <x>210</x>
+     <x>220</x>
      <y>460</y>
-     <width>41</width>
+     <width>51</width>
      <height>16</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font: 11pt &quot;微软雅黑&quot;;</string>
    </property>
    <property name="text">
     <string>销售员</string>
@@ -183,10 +243,14 @@
    <property name="geometry">
     <rect>
      <x>180</x>
-     <y>30</y>
-     <width>51</width>
-     <height>16</height>
+     <y>10</y>
+     <width>71</width>
+     <height>20</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);
+font: 12pt &quot;微软雅黑&quot;;</string>
    </property>
    <property name="text">
     <string>保单信息</string>
@@ -197,9 +261,13 @@
     <rect>
      <x>30</x>
      <y>320</y>
-     <width>51</width>
+     <width>61</width>
      <height>16</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font: 11pt &quot;微软雅黑&quot;;</string>
    </property>
    <property name="text">
     <string>保单内容</string>
@@ -210,9 +278,13 @@
     <rect>
      <x>150</x>
      <y>60</y>
-     <width>54</width>
-     <height>12</height>
+     <width>81</width>
+     <height>16</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font:11pt &quot;微软雅黑&quot;;</string>
    </property>
    <property name="text">
     <string>TextLabel</string>
@@ -223,9 +295,13 @@
     <rect>
      <x>150</x>
      <y>90</y>
-     <width>54</width>
-     <height>12</height>
+     <width>81</width>
+     <height>16</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font: 11pt &quot;微软雅黑&quot;;</string>
    </property>
    <property name="text">
     <string>TextLabel</string>
@@ -236,9 +312,13 @@
     <rect>
      <x>150</x>
      <y>120</y>
-     <width>54</width>
-     <height>12</height>
+     <width>81</width>
+     <height>16</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font: 11pt &quot;微软雅黑&quot;;</string>
    </property>
    <property name="text">
     <string>TextLabel</string>
@@ -249,9 +329,13 @@
     <rect>
      <x>150</x>
      <y>150</y>
-     <width>54</width>
-     <height>12</height>
+     <width>81</width>
+     <height>16</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font: 11pt &quot;微软雅黑&quot;;</string>
    </property>
    <property name="text">
     <string>TextLabel</string>
@@ -262,9 +346,13 @@
     <rect>
      <x>150</x>
      <y>180</y>
-     <width>54</width>
-     <height>12</height>
+     <width>81</width>
+     <height>16</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font: 11pt &quot;微软雅黑&quot;;</string>
    </property>
    <property name="text">
     <string>TextLabel</string>
@@ -275,9 +363,13 @@
     <rect>
      <x>150</x>
      <y>210</y>
-     <width>54</width>
-     <height>12</height>
+     <width>81</width>
+     <height>16</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font: 11pt &quot;微软雅黑&quot;;</string>
    </property>
    <property name="text">
     <string>TextLabel</string>
@@ -288,9 +380,13 @@
     <rect>
      <x>150</x>
      <y>240</y>
-     <width>54</width>
-     <height>12</height>
+     <width>81</width>
+     <height>16</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font: 11pt &quot;微软雅黑&quot;;</string>
    </property>
    <property name="text">
     <string>TextLabel</string>
@@ -299,11 +395,15 @@
   <widget class="QLabel" name="LBDiscount">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>410</y>
-     <width>54</width>
-     <height>12</height>
+     <x>130</x>
+     <y>420</y>
+     <width>81</width>
+     <height>16</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font: 11pt &quot;微软雅黑&quot;;</string>
    </property>
    <property name="text">
     <string>TextLabel</string>
@@ -312,11 +412,15 @@
   <widget class="QLabel" name="LBPolicytime">
    <property name="geometry">
     <rect>
-     <x>120</x>
+     <x>130</x>
      <y>460</y>
-     <width>54</width>
-     <height>12</height>
+     <width>71</width>
+     <height>16</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font: 11pt &quot;微软雅黑&quot;;</string>
    </property>
    <property name="text">
     <string>TextLabel</string>
@@ -325,11 +429,15 @@
   <widget class="QLabel" name="LBCost">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>410</y>
-     <width>54</width>
-     <height>12</height>
+     <x>290</x>
+     <y>420</y>
+     <width>71</width>
+     <height>16</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font: 11pt &quot;微软雅黑&quot;;</string>
    </property>
    <property name="text">
     <string>TextLabel</string>
@@ -338,14 +446,37 @@
   <widget class="QLabel" name="LBSeller">
    <property name="geometry">
     <rect>
-     <x>280</x>
+     <x>290</x>
      <y>460</y>
-     <width>54</width>
-     <height>12</height>
+     <width>81</width>
+     <height>16</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font: 11pt &quot;微软雅黑&quot;;</string>
    </property>
    <property name="text">
     <string>TextLabel</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="PBClose">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>9</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#PBClose{border-image: url(:/new/prefix1/x_close.png);
+outline: none}
+#PBClose:hover{border-image: url(:/new/prefix1/x_close_2.png);}
+#PBClose:pressed{border-image: url(:/new/prefix1/x_close_3.png);}</string>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
  </widget>

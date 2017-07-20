@@ -3,7 +3,8 @@
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QVariant>
-
+#include <QBitmap>
+#include <QPainter>
 
 Detail::Detail(QWidget *parent) :
     QDialog(parent),
@@ -11,6 +12,22 @@ Detail::Detail(QWidget *parent) :
 {
     ui->setupUi(this);
     insurancelist=NULL;
+
+    setWindowTitle(QString::fromLocal8Bit("汽车保险综合管理平台"));
+
+    flag = 0;
+    flag2 = 0;
+    this->setFixedSize(420,520); //设置固定大小
+    this->setWindowFlags(Qt::FramelessWindowHint | Qt::WindowSystemMenuHint | Qt::WindowMinimizeButtonHint); //隐藏标题栏及最小化可见
+
+    //圆角
+    QBitmap objBitmap(size());
+    QPainter painter(&objBitmap);
+    painter.fillRect(rect(),Qt::white);
+    painter.setBrush(QColor(0,0,0));
+    painter.drawRoundedRect(this->rect(),11,11);
+    setMask(objBitmap);
+
 }
 
 Detail::~Detail()
@@ -112,4 +129,42 @@ void call_detail(int policyid)
 {
     Detail d;
     d.set_policyid(policyid);
+}
+
+void Detail::on_PBOk_clicked()
+{
+    this->close();
+}
+
+void Detail::mousePressEvent(QMouseEvent *e) //鼠标点击界面
+{
+    judge.setX(0), judge.setY(0);
+    judge = e->pos();
+    if(judge.y() > 45 || (judge.x() == 0 && judge.y() == 0))
+    {
+        flag = 0;
+        return ;
+    }
+    flag = 1;
+    last = e->globalPos();
+    //qDebug() << judge.rx() << ".." << judge.ry();
+}
+void Detail::mouseMoveEvent(QMouseEvent *e) //界面跟随鼠标移动
+{
+    if(flag == 0) return;
+    int dx = e->globalX() - last.x();
+    int dy = e->globalY() - last.y();
+    last = e->globalPos();
+    //qDebug() << last.rx() << ".." << last.ry();
+    move(x()+dx, y()+dy);
+}
+void Detail::mouseReleaseEvent(QMouseEvent *e) //鼠标释放
+{
+    judge.setX(0), judge.setY(0);
+    flag = 0;
+}
+
+void Detail::on_PBClose_clicked()
+{
+    this->close();
 }
