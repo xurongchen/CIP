@@ -137,9 +137,9 @@ SellerOper::SellerOper(QWidget *parent) :
     ui->TVInsuranceget->horizontalHeader()->setResizeMode(2, QHeaderView::ResizeToContents);
     //ui->TVInsuranceget->horizontalHeader()->setResizeMode(3, QHeaderView::Fixed);
     //设置表格的各列的宽度值
-    ui->TVInsuranceget->setColumnWidth(0,100);
-    ui->TVInsuranceget->setColumnWidth(1,50);
-    ui->TVInsuranceget->setColumnWidth(2,50);
+    ui->TVInsuranceget->setColumnWidth(0,60);
+    ui->TVInsuranceget->setColumnWidth(1,90);
+    ui->TVInsuranceget->setColumnWidth(2,65);
     ui->TVInsuranceget->setColumnWidth(3,0);
 
     //默认显示行头，如果你觉得不美观的话，我们可以将隐藏
@@ -165,9 +165,9 @@ SellerOper::SellerOper(QWidget *parent) :
     ui->TVInsuranceall->horizontalHeader()->setResizeMode(2, QHeaderView::ResizeToContents);
     //ui->TVInsuranceall->horizontalHeader()->setResizeMode(3, QHeaderView::Fixed);
     //设置表格的各列的宽度值
-    ui->TVInsuranceall->setColumnWidth(0,100);
-    ui->TVInsuranceall->setColumnWidth(1,50);
-    ui->TVInsuranceall->setColumnWidth(2,50);
+    ui->TVInsuranceall->setColumnWidth(0,60);
+    ui->TVInsuranceall->setColumnWidth(1,90);
+    ui->TVInsuranceall->setColumnWidth(2,65);
     ui->TVInsuranceall->setColumnWidth(3,0);
 
     //默认显示行头，如果你觉得不美观的话，我们可以将隐藏
