@@ -4,6 +4,7 @@
 #include "currentuser.h"
 #include "information.h"
 #include "policyinsurance.h"
+#include "detail.h"
 #include "pop.h"
 #include <QString>
 #include <string>
@@ -577,7 +578,7 @@ void SellerOper::on_PBSET_clicked()
         PolicyInsurance p(PolicyId,datatemp.toInt());
         p.add();
     }
-    PolicyId = -1;
+
     insuranceget_init();
     insuranceget_renew(insuranceget);
     ui->TVInsuranceget->setModel(insuranceget);
@@ -597,7 +598,8 @@ void SellerOper::on_PBSET_clicked()
     show_word(QString::fromLocal8Bit("成功！"), QString::fromLocal8Bit("保单填写成功！"));
 
     //预留预览
-
+    call_detail(PolicyId);
+    PolicyId = -1;
     //
     ui->tabWidget->setCurrentIndex(0);
 }

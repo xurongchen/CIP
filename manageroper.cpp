@@ -51,10 +51,10 @@ ManagerOper::ManagerOper(QWidget *parent) :
     ui->SBCostfxed->setSuffix(QString::fromLocal8Bit(" 元"));
     ui->SBCostfxed->setSpecialValueText(QString::fromLocal8Bit("无固定费用"));
 
-    ui->DSBCostfloat->setRange(0, 1); // 范围
+    ui->DSBCostfloat->setRange(0, 100); // 范围
     ui->DSBCostfloat->setDecimals(3);  // 精度
     ui->DSBCostfloat->setSingleStep(0.01); // 步长
-    //ui->DSBCostfloat->setSuffix(QString::fromLocal8Bit(" %"));
+    ui->DSBCostfloat->setSuffix(QString::fromLocal8Bit(" %"));
     ui->DSBCostfloat->setValue(0);  // 当前值
     ui->DSBCostfloat->setSpecialValueText(QString::fromLocal8Bit("无浮动费率"));  // 特殊文本值
 
@@ -122,12 +122,12 @@ ManagerOper::ManagerOper(QWidget *parent) :
     ui->TVInsurance->setModel(insurancelist);
 
     //设置列宽不可变动，即不能通过鼠标拖动增加列宽
-    ui->TVInsurance->horizontalHeader()->setResizeMode(0, QHeaderView::Fixed);
-    ui->TVInsurance->horizontalHeader()->setResizeMode(1, QHeaderView::Fixed);
+    ui->TVInsurance->horizontalHeader()->setResizeMode(0, QHeaderView::ResizeToContents);
+    ui->TVInsurance->horizontalHeader()->setResizeMode(1, QHeaderView::ResizeToContents);
     //ui->TVInsurance->horizontalHeader()->setResizeMode(2, QHeaderView::Fixed);
     ui->TVInsurance->horizontalHeader()->setResizeMode(2, QHeaderView::ResizeToContents);
-    ui->TVInsurance->horizontalHeader()->setResizeMode(3, QHeaderView::Fixed);
-    ui->TVInsurance->horizontalHeader()->setResizeMode(4, QHeaderView::Fixed);
+    ui->TVInsurance->horizontalHeader()->setResizeMode(3, QHeaderView::ResizeToContents);
+    ui->TVInsurance->horizontalHeader()->setResizeMode(4, QHeaderView::ResizeToContents);
     //设置表格的各列的宽度值
     ui->TVInsurance->setColumnWidth(0,70);
     ui->TVInsurance->setColumnWidth(1,80);
@@ -436,6 +436,10 @@ void ManagerOper::on_PBDele_clicked()
     ui->LEInsurancename->clear();
     ui->SBCostfxed->setValue(0);
     ui->DSBCostfloat->setValue(0);
+
+    insuranceall_renew(insuranceall);
+    ui->TVInsuranceall->setModel(insuranceall);
+    ui->TVInsuranceall->setColumnWidth(3,0);
 }
 
 void ManagerOper::get_title(QString word)
@@ -490,4 +494,19 @@ void ManagerOper::on_PBDetail_clicked()
     //这个是一个单元格的值。tostring()----ok
     QVariant datatemp = modessl->data(indextemp);
     call_detail(datatemp.toInt());
+}
+
+void ManagerOper::on_PBSerch_clicked()
+{
+    QString str = ui->LESearch->text();
+    insurancelist_search(insurancelist,str);
+    ui->TVInsurance->setModel(insurancelist);
+    ui->TVInsurance->setColumnWidth(5,0);
+}
+
+void ManagerOper::on_PBFinshserch_clicked()
+{
+    insurancelist_renew(insurancelist);
+    ui->TVInsurance->setModel(insurancelist);
+    ui->TVInsurance->setColumnWidth(5,0);
 }

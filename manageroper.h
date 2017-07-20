@@ -81,6 +81,10 @@ private slots:
 
     void on_PBDetail_clicked();
 
+    void on_PBSerch_clicked();
+
+    void on_PBFinshserch_clicked();
+
 private:
     Ui::ManagerOper *ui;
     int flag, flag2;
