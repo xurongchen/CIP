@@ -4,6 +4,7 @@
 #include "currentuser.h"
 #include "information.h"
 #include "policyinsurance.h"
+#include "pop.h"
 #include <QString>
 #include <string>
 #include <QBitmap>
@@ -18,6 +19,9 @@ SellerOper::SellerOper(QWidget *parent) :
     ui(new Ui::SellerOper)
 {
     ui->setupUi(this);
+
+    setWindowTitle(QString::fromLocal8Bit("汽车保险综合管理平台"));
+
     ui->tabWidget->setStyleSheet("QTabWidget:pane {border-top:0px solid #e8f3f9;background:  transparent; }"); //设置tab背景透明
     ui->tabWidget->findChildren<QTabBar*>().at(0)->hide(); //tab标题栏隐藏
     flag = 0;
@@ -356,14 +360,16 @@ void SellerOper::on_PBA3_clicked()
     int message = p.add(PolicyId);
     if(message==POLICY_ADD_ERROR_IMPORTANT_INFO_EMPTY)
     {
-        QMessageBox::critical(0, "ERROR",
-                    QString("SOMETHING IS NULL!"), QMessageBox::Cancel);
+//        QMessageBox::critical(0, "ERROR",
+//                    QString("SOMETHING IS NULL!"), QMessageBox::Cancel);
+        show_word(QString::fromLocal8Bit("错误！"), QString::fromLocal8Bit("请填写全部项！"));
         ui->tabWidget->setCurrentIndex(0);
     }
     if(message==POLICY_ADD_ERROR_SAME_POLICYID)
     {
-        QMessageBox::critical(0, "ERROR",
-                    QString("POLICYID HAS USED!"), QMessageBox::Cancel);
+//        QMessageBox::critical(0, "ERROR",
+//                    QString("POLICYID HAS USED!"), QMessageBox::Cancel);
+        show_word(QString::fromLocal8Bit("错误！"), QString::fromLocal8Bit("保单号已存在！"));
         ui->tabWidget->setCurrentIndex(4);
     }
     if(message==POLICY_ADD_SUCCESS)
@@ -390,14 +396,16 @@ void SellerOper::on_PBB3_clicked()
     int message = p.add(PolicyId);
     if(message==POLICY_ADD_ERROR_IMPORTANT_INFO_EMPTY)
     {
-        QMessageBox::critical(0, "ERROR",
-                    QString("SOMETHING IS NULL!"), QMessageBox::Cancel);
+//        QMessageBox::critical(0, "ERROR",
+//                    QString("SOMETHING IS NULL!"), QMessageBox::Cancel);
+        show_word(QString::fromLocal8Bit("错误！"), QString::fromLocal8Bit("请填写全部项目！"));
         ui->tabWidget->setCurrentIndex(0);
     }
     if(message==POLICY_ADD_ERROR_SAME_POLICYID)
     {
-        QMessageBox::critical(0, "ERROR",
-                    QString("POLICYID HAS USED!"), QMessageBox::Cancel);
+//        QMessageBox::critical(0, "ERROR",
+//                    QString("POLICYID HAS USED!"), QMessageBox::Cancel);
+        show_word(QString::fromLocal8Bit("错误！"), QString::fromLocal8Bit("保单号已存在！"));
         ui->tabWidget->setCurrentIndex(4);
     }
     if(message==POLICY_ADD_SUCCESS)
@@ -424,14 +432,16 @@ void SellerOper::on_PBC3_clicked()
     int message = p.add(PolicyId);
     if(message==POLICY_ADD_ERROR_IMPORTANT_INFO_EMPTY)
     {
-        QMessageBox::critical(0, "ERROR",
-                    QString("SOMETHING IS NULL!"), QMessageBox::Cancel);
+//        QMessageBox::critical(0, "ERROR",
+//                    QString("SOMETHING IS NULL!"), QMessageBox::Cancel);
+        show_word(QString::fromLocal8Bit("错误！"), QString::fromLocal8Bit("请填写全部项目！"));
         ui->tabWidget->setCurrentIndex(0);
     }
     if(message==POLICY_ADD_ERROR_SAME_POLICYID)
     {
-        QMessageBox::critical(0, "ERROR",
-                    QString("POLICYID HAS USED!"), QMessageBox::Cancel);
+//        QMessageBox::critical(0, "ERROR",
+//                    QString("POLICYID HAS USED!"), QMessageBox::Cancel);
+        show_word(QString::fromLocal8Bit("错误！"), QString::fromLocal8Bit("保单号已存在！"));
         ui->tabWidget->setCurrentIndex(4);
     }
     if(message==POLICY_ADD_SUCCESS)
@@ -491,8 +501,9 @@ void SellerOper::on_PBReciDel_clicked()
     Info i(datatemp.toInt());
     int message = i.del(RECIDEL);
     if(message==INFO_DEL_FAILED_NO_PERMISSION)
-        QMessageBox::critical(0, "ERROR",
-                    QString("THIS IS A BROADCAST,ONLY SENDER CAN DELETE IN SEND TABLE!"), QMessageBox::Cancel);
+//        QMessageBox::critical(0, "ERROR",
+//                    QString("THIS IS A BROADCAST,ONLY SENDER CAN DELETE IN SEND TABLE!"), QMessageBox::Cancel);
+        show_word(QString::fromLocal8Bit("错误！"), QString::fromLocal8Bit("广播消息只能由发送者删除！"));
     send_renew(infosend);
     ui->TVSend->setModel(infosend);
     ui->TVSend->setColumnWidth(3,0);
@@ -520,19 +531,22 @@ void SellerOper::on_PBSend_clicked()
     User u(strsend);
     int message = u.query();
     if(message==QUERY_NO_USER&&strsend!=NULL)
-        QMessageBox::critical(0, "ERROR",
-                    "NO SUCH USER!", QMessageBox::Cancel);
+//        QMessageBox::critical(0, "ERROR",
+//                    "NO SUCH USER!", QMessageBox::Cancel);
+        show_word(QString::fromLocal8Bit("错误！"), QString::fromLocal8Bit("该用户不存在！"));
     else if(strsend!=NULL)
     {
         Info i(get_currentuser(),message,contentsend);
         i.add();
-        QMessageBox::information(0, "SUCCESS",
-                    QString("A MESSAGE HAS BEEN SENT TO %1!").arg(strsend), QMessageBox::Ok);
+//        QMessageBox::information(0, "SUCCESS",
+//                    QString("A MESSAGE HAS BEEN SENT TO %1!").arg(strsend), QMessageBox::Ok);
+        show_word(QString::fromLocal8Bit("成功！"), QString::fromLocal8Bit("消息发送成功！"));
     }
     else
     {
-        QMessageBox::critical(0, "ERROR",
-                    "RECI IS EMPTY!", QMessageBox::Cancel);
+//        QMessageBox::critical(0, "ERROR",
+//                    "RECI IS EMPTY!", QMessageBox::Cancel);
+        show_word(QString::fromLocal8Bit("错误！"), QString::fromLocal8Bit("发送用户不能为空！"));
     }
     send_renew(infosend);
     ui->TVSend->setModel(infosend);
@@ -549,8 +563,9 @@ void SellerOper::on_PBSET_clicked()
     int rownum = ui->TVInsuranceget->model()->rowCount();
     if(rownum==0)
     {
-        QMessageBox::critical(0, "ERROR",
-                    "NO INSURANCE ADD!", QMessageBox::Cancel);
+//        QMessageBox::critical(0, "ERROR",
+//                    "NO INSURANCE ADD!", QMessageBox::Cancel);
+        show_word(QString::fromLocal8Bit("错误！"), QString::fromLocal8Bit("请为保单选择车险！"));
         return;
     }
     for(int row=0;row<rownum;row++)
@@ -576,8 +591,9 @@ void SellerOper::on_PBSET_clicked()
     ui->SBPrice->setValue(100000);
     ui->DSBDiscount->setValue(0);
     ui->DEStart->setDate(QDate::currentDate());
-    QMessageBox::information(0, "SUCCESS",
-                QString("INSURANCE HAS ADDED!"), QMessageBox::Ok);
+//    QMessageBox::information(0, "SUCCESS",
+//                QString("INSURANCE HAS ADDED!"), QMessageBox::Ok);
+    show_word(QString::fromLocal8Bit("成功！"), QString::fromLocal8Bit("保单填写成功！"));
 
     //预留预览
 
@@ -619,4 +635,9 @@ void SellerOper::on_PBDel_clicked()
     insuranceall_renew(insuranceall);
     ui->TVInsuranceall->setModel(insuranceall);
     ui->TVInsuranceall->setColumnWidth(3,0);
+}
+
+void SellerOper::get_title(QString word)
+{
+    ui->SellerTitle->setText(word);
 }

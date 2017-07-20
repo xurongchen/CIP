@@ -43,5 +43,6 @@
         <file>pop.png</file>
         <file>icon.png</file>
         <file>61.png</file>
+        <file>31.png</file>
     </qresource>
 </RCC>
