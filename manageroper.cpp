@@ -19,6 +19,9 @@ ManagerOper::ManagerOper(QWidget *parent) :
     ui(new Ui::ManagerOper)
 {
     ui->setupUi(this);
+
+    setWindowTitle(QString::fromLocal8Bit("汽车保险综合管理平台"));
+
     ui->tabWidget->setStyleSheet("QTabWidget:pane {border-top:0px solid #e8f3f9;background:  transparent; }"); //设置tab背景透明
     ui->tabWidget->findChildren<QTabBar*>().at(0)->hide(); //tab标题栏隐藏
     flag = 0;
@@ -305,7 +308,8 @@ void ManagerOper::on_PBSend_clicked()
         i.add();
         //QMessageBox::information(0, "SUCCESS",
         //            QString("A MESSAGE HAS BEEN SENT TO %1!").arg(strsend), QMessageBox::Ok);
-        show_word(QString::fromLocal8Bit("成功！"), QString::fromLocal8Bit("一个消息已经发送给了%1!").arg(strsend));
+        //show_word(QString::fromLocal8Bit("成功！"), QString::fromLocal8Bit("一个消息已经发送给了%1!").arg(strsend));
+        show_word(QString::fromLocal8Bit("成功！"), QString::fromLocal8Bit("消息发送成功！"));
     }
     else
     {
@@ -313,7 +317,7 @@ void ManagerOper::on_PBSend_clicked()
         i.add();
         //QMessageBox::information(0, "SUCCESS",
         //            QString("A MESSAGE HAS BEEN BROADCAST!"), QMessageBox::Ok);
-        show_word(QString::fromLocal8Bit("成功！"), QString::fromLocal8Bit("一个消息已经广播给了所有用户！"));
+        show_word(QString::fromLocal8Bit("成功！"), QString::fromLocal8Bit("消息广播成功！"));
     }
     send_renew(infosend);
     ui->TVSend->setModel(infosend);
@@ -363,7 +367,7 @@ void ManagerOper::on_PBReciDel_clicked()
     if(message==INFO_DEL_FAILED_NO_PERMISSION)
         //QMessageBox::critical(0, "ERROR",
         //            QString("THIS IS A BROADCAST,ONLY SENDER CAN DELETE IN SEND TABLE!"), QMessageBox::Cancel);
-        show_word(QString::fromLocal8Bit("错误！"), QString::fromLocal8Bit("广播消息只能被发送者在发送界面删除。"));
+    show_word(QString::fromLocal8Bit("错误！"), QString::fromLocal8Bit("广播消息只能由发送者删除！"));
     send_renew(infosend);
     ui->TVSend->setModel(infosend);
     ui->TVSend->setColumnWidth(3,0);
@@ -385,14 +389,25 @@ void ManagerOper::on_PBReciClear_clicked()
 
 void ManagerOper::on_PBDele_clicked()
 {
+    QString judge = ui->LEInsurancename->text();
+    if(judge == "")
+    {
+        show_word(QString::fromLocal8Bit("错误！"), QString::fromLocal8Bit("保险名不能为空！"));
+        return ;
+    }
     Insurance i(ui->LEInsurancename->text(),
                 int(ui->SBCostfxed->value()),
                 ui->DSBCostfloat->value());
     i.add();
     //QMessageBox::information(0, "SUCCESS",
     //           QString("ADD INSURANCE SUCCESS!"), QMessageBox::Cancel);
-    show_word(QString::fromLocal8Bit("成功！"), QString::fromLocal8Bit("一个新保险已成功添加！"));
+    show_word(QString::fromLocal8Bit("成功！"), QString::fromLocal8Bit("新保险添加成功！"));
     ui->LEInsurancename->clear();
     ui->SBCostfxed->setValue(0);
     ui->DSBCostfloat->setValue(0);
+}
+
+void ManagerOper::get_title(QString word)
+{
+    ui->ManTitle->setText(word);
 }

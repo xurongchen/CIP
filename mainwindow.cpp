@@ -18,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    setWindowTitle(QString::fromLocal8Bit("汽车保险综合管理平台"));
     flag = 0;
     this->setFixedSize(720,445); //设置固定大小
     this->setWindowFlags(Qt::FramelessWindowHint | Qt::WindowSystemMenuHint | Qt::WindowMinimizeButtonHint); //隐藏标题栏及最小化可见
@@ -128,6 +129,7 @@ void MainWindow::on_PBLogin_clicked()
             if(query.value(3)==1)
             {
                 AdminOper adminOper;
+                adminOper.get_title(QString::fromLocal8Bit("欢迎！管理员 %1").arg(Username));
                 adminOper.exec();
                 //qDebug() << get_currentuser();
             }
@@ -136,6 +138,7 @@ void MainWindow::on_PBLogin_clicked()
 //                QMessageBox::information(0,"GoodJob",
 //                                        "ManagerLogin is OK!",QMessageBox::Ok);
                 ManagerOper managerOper;
+                managerOper.get_title(QString::fromLocal8Bit("欢迎！经理 %1").arg(Username));
                 managerOper.exec();
             }
             else if(query.value(3)==3)
@@ -143,6 +146,7 @@ void MainWindow::on_PBLogin_clicked()
 //                QMessageBox::information(0,"GoodJob",
 //                                       "SellerLogin is OK!",QMessageBox::Ok);
                 SellerOper sellerOper;
+                //sellerOper.get_title(QString::fromLocal8Bit("欢迎！销售员 %1").arg(Username));
                 sellerOper.exec();
             }
             //qDebug() << "abcd";

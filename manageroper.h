@@ -18,6 +18,7 @@ public:
     ~ManagerOper();
     void closeEvent(QCloseEvent *);
     QStandardItemModel *infosend, *inforeci, *insurancelist;
+    void get_title(QString word);
 
 private slots:
     bool closeWidget();

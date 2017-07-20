@@ -20,6 +20,9 @@ AdminOper::AdminOper(QWidget *parent) :
     ui(new Ui::AdminOper)
 {
     ui->setupUi(this);
+
+    setWindowTitle(QString::fromLocal8Bit("汽车保险综合管理平台"));
+
     ui->tabWidget->setStyleSheet("QTabWidget:pane {border-top:0px solid #e8f3f9;background:  transparent; }"); //设置tab背景透明
     ui->tabWidget->findChildren<QTabBar*>().at(0)->hide(); //tab标题栏隐藏
     flag = 0;
@@ -327,8 +330,8 @@ void AdminOper::on_PBDele_clicked()
         }
         if(message==DELETE_SUCCESS)
         {
-            QMessageBox::information(0, "SUCCESS",
-                        "SUCCESS TO DELETE A USER!", QMessageBox::Ok);
+//            QMessageBox::information(0, "SUCCESS",
+//                        "SUCCESS TO DELETE A USER!", QMessageBox::Ok);
             show_word(QString::fromLocal8Bit("成功！"), QString::fromLocal8Bit("账号删除成功！"));
         }
     }
@@ -344,21 +347,30 @@ void AdminOper::on_PBSend_clicked()
     User u(strsend);
     int message = u.query();
     if(message==QUERY_NO_USER&&strsend!=NULL)
-        QMessageBox::critical(0, "ERROR",
-                    "NO SUCH USER!", QMessageBox::Cancel);
+    {
+//        QMessageBox::critical(0, "ERROR",
+//                    "NO SUCH USER!", QMessageBox::Cancel);
+        show_word(QString::fromLocal8Bit("错误！"), QString::fromLocal8Bit("该用户不存在！"));
+    }
     else if(strsend!=NULL)
     {
         Info i(get_currentuser(),message,contentsend);
         i.add();
-        QMessageBox::information(0, "SUCCESS",
-                    QString("A MESSAGE HAS BEEN SENT TO %1!").arg(strsend), QMessageBox::Ok);
+        {
+//            QMessageBox::information(0, "SUCCESS",
+//                    QString("A MESSAGE HAS BEEN SENT TO %1!").arg(strsend), QMessageBox::Ok);
+            show_word(QString::fromLocal8Bit("成功！"), QString::fromLocal8Bit("消息发送成功！"));
+        }
     }
     else
     {
         Info i(get_currentuser(),-1,contentsend);
         i.add();
-        QMessageBox::information(0, "SUCCESS",
-                    QString("A MESSAGE HAS BEEN BROADCAST!"), QMessageBox::Ok);
+        {
+//            QMessageBox::information(0, "SUCCESS",
+//                    QString("A MESSAGE HAS BEEN BROADCAST!"), QMessageBox::Ok);
+            show_word(QString::fromLocal8Bit("成功！"), QString::fromLocal8Bit("消息广播成功！"));
+        }
     }
     send_renew(infosend);
     ui->TVSend->setModel(infosend);
@@ -407,8 +419,11 @@ void AdminOper::on_PBReciDel_clicked()
     Info i(datatemp.toInt());
     int message = i.del(RECIDEL);
     if(message==INFO_DEL_FAILED_NO_PERMISSION)
-        QMessageBox::critical(0, "ERROR",
-                    QString("THIS IS A BROADCAST,ONLY SENDER CAN DELETE IN SEND TABLE!"), QMessageBox::Cancel);
+    {
+//        QMessageBox::critical(0, "ERROR",
+//                    QString("THIS IS A BROADCAST,ONLY SENDER CAN DELETE IN SEND TABLE!"), QMessageBox::Cancel);
+        show_word(QString::fromLocal8Bit("错误！"), QString::fromLocal8Bit("广播消息只能由发送者删除！"));
+    }
     send_renew(infosend);
     ui->TVSend->setModel(infosend);
     ui->TVSend->setColumnWidth(3,0);
@@ -427,4 +442,24 @@ void AdminOper::on_PBReciClear_clicked()
     reci_renew(inforeci);
     ui->TVReci->setModel(inforeci);
     ui->TVReci->setColumnWidth(3,0);
+}
+
+void AdminOper::on_PBAdd2_clicked()
+{
+    ui->tabWidget->setCurrentIndex(0);
+}
+
+void AdminOper::on_PBMessage2_2_clicked()
+{
+    ui->tabWidget->setCurrentIndex(1);
+}
+
+void AdminOper::on_PBMessage2_clicked()
+{
+    ui->tabWidget->setCurrentIndex(2);
+}
+
+void AdminOper::get_title(QString word)
+{
+    ui->AdminTitle->setText(word);
 }

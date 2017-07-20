@@ -9,6 +9,7 @@ Pop::Pop(QWidget *parent) :
     ui(new Ui::Pop)
 {
     ui->setupUi(this);
+
     this->setFixedSize(190,117); //设置固定大小
 
     this->setWindowFlags(Qt::FramelessWindowHint | Qt::WindowSystemMenuHint | Qt::WindowMinimizeButtonHint); //隐藏标题栏及最小化可见
@@ -62,8 +63,11 @@ void Pop::on_pushButton_clicked()
 
 void Pop::get_word(QString Title, QString Word)
 {
+    setWindowTitle(Title);
+
     ui->Title->setText(Title);
     ui->Word->setText(Word);
+
     ui->Title->setAlignment(Qt::AlignCenter);
     ui->Word->setAlignment(Qt::AlignCenter);
 }

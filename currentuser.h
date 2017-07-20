@@ -24,4 +24,5 @@ void set_currentuser(int userid);
 void reset_currentuser();
 int get_currentuser();
 
+
 #endif // CURRENTUSER_H

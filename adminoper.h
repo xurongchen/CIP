@@ -18,6 +18,7 @@ public:
     ~AdminOper();
     void closeEvent(QCloseEvent *);
     QStandardItemModel *infosend, *inforeci;
+    void get_title(QString word);
 
 private slots:
     void on_PBMin_clicked();
@@ -63,6 +64,12 @@ private slots:
     void on_PBReciDel_clicked();
 
     void on_PBReciClear_clicked();
+
+    void on_PBAdd2_clicked();
+
+    void on_PBMessage2_2_clicked();
+
+    void on_PBMessage2_clicked();
 
 private:
     Ui::AdminOper *ui;

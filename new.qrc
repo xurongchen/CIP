@@ -41,5 +41,7 @@
         <file>xadm_2.png</file>
         <file>xadm_3.png</file>
         <file>pop.png</file>
+        <file>icon.png</file>
+        <file>61.png</file>
     </qresource>
 </RCC>
