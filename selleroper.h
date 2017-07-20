@@ -19,6 +19,7 @@ public:
     void closeEvent(QCloseEvent *);
     int PolicyId;    
     QStandardItemModel *infosend, *inforeci, *insuranceget, *insuranceall;
+    void get_title(QString word);
 
 private slots:
     bool closeWidget();

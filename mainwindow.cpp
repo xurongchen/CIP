@@ -146,7 +146,7 @@ void MainWindow::on_PBLogin_clicked()
 //                QMessageBox::information(0,"GoodJob",
 //                                       "SellerLogin is OK!",QMessageBox::Ok);
                 SellerOper sellerOper;
-                //sellerOper.get_title(QString::fromLocal8Bit("欢迎！销售员 %1").arg(Username));
+                sellerOper.get_title(QString::fromLocal8Bit("欢迎！销售员 %1").arg(Username));
                 sellerOper.exec();
             }
             //qDebug() << "abcd";
