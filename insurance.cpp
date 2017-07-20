@@ -29,7 +29,7 @@ void insurancelist_renew(QStandardItemModel *&tb)
                           .arg(query.value(10).toString()));
         tmpquery.first();
         tb->setItem(nowline, 4, new QStandardItem(tmpquery.value(1).toString()));
-        tb->setItem(nowline, 5, new QStandardItem(query.value(0).toInt()));
+        tb->setItem(nowline, 5, new QStandardItem(query.value(0).toString()));
         nowline++;
     }
     tb->sort(1, Qt::DescendingOrder);

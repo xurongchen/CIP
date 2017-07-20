@@ -79,6 +79,8 @@ private slots:
 
     void on_PBDel_clicked();
 
+    void on_PBDetail_clicked();
+
 private:
     Ui::ManagerOper *ui;
     int flag, flag2;
