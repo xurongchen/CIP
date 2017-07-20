@@ -589,6 +589,7 @@ void SellerOper::on_PBSET_clicked()
     ui->LECard->clear();
     ui->LEName->clear();
     ui->LENum->clear();
+    ui->LEStyle->clear();
     ui->LEPolicynum->clear();
     ui->SBPrice->setValue(100000);
     ui->DSBDiscount->setValue(0);

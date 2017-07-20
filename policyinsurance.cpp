@@ -33,9 +33,9 @@ void insuranceget_renew(QStandardItemModel *&tb)
     if(tb!=NULL)
         delete tb;
     tb = new QStandardItemModel();
-    tb->setHorizontalHeaderItem(0, new QStandardItem(QObject::tr("Name")));
-    tb->setHorizontalHeaderItem(1, new QStandardItem(QObject::tr("FixCost")));
-    tb->setHorizontalHeaderItem(2, new QStandardItem(QObject::tr("FloatCost(%)")));
+    tb->setHorizontalHeaderItem(0, new QStandardItem(QString::fromLocal8Bit("车险名称")));
+    tb->setHorizontalHeaderItem(1, new QStandardItem(QString::fromLocal8Bit("固定费用（元）")));
+    tb->setHorizontalHeaderItem(2, new QStandardItem(QString::fromLocal8Bit("比例费用（%）")));
 
     QSqlDatabase db = QSqlDatabase::database("connection");
     QSqlQuery query(db);
@@ -66,9 +66,9 @@ void insuranceall_renew(QStandardItemModel *&tb)
     if(tb!=NULL)
         delete tb;
     tb = new QStandardItemModel();
-    tb->setHorizontalHeaderItem(0, new QStandardItem(QObject::tr("Name")));
-    tb->setHorizontalHeaderItem(1, new QStandardItem(QObject::tr("FixCost")));
-    tb->setHorizontalHeaderItem(2, new QStandardItem(QObject::tr("FloatCost(%)")));
+    tb->setHorizontalHeaderItem(0, new QStandardItem(QString::fromLocal8Bit("车险名称")));
+    tb->setHorizontalHeaderItem(1, new QStandardItem(QString::fromLocal8Bit("固定费用（元）")));
+    tb->setHorizontalHeaderItem(2, new QStandardItem(QString::fromLocal8Bit("比例费用（%）")));
 
     QSqlDatabase db = QSqlDatabase::database("connection");
     QSqlQuery query(db);

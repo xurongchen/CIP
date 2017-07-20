@@ -489,6 +489,8 @@ void ManagerOper::on_PBDel_clicked()
 void ManagerOper::on_PBDetail_clicked()
 {
     int curRow=ui->TVInsurance->currentIndex().row(); //选中行
+    if(curRow==-1)
+        return;
     QAbstractItemModel *modessl = ui->TVInsurance->model();
     QModelIndex indextemp = modessl->index(curRow,5);//遍历第一行的所有列,i是你要取值的列的下标
     //这个是一个单元格的值。tostring()----ok
