@@ -35,7 +35,7 @@ void insuranceget_renew(QStandardItemModel *&tb)
     tb = new QStandardItemModel();
     tb->setHorizontalHeaderItem(0, new QStandardItem(QObject::tr("Name")));
     tb->setHorizontalHeaderItem(1, new QStandardItem(QObject::tr("FixCost")));
-    tb->setHorizontalHeaderItem(2, new QStandardItem(QObject::tr("FloatCost")));
+    tb->setHorizontalHeaderItem(2, new QStandardItem(QObject::tr("FloatCost(%)")));
 
     QSqlDatabase db = QSqlDatabase::database("connection");
     QSqlQuery query(db);
@@ -68,7 +68,7 @@ void insuranceall_renew(QStandardItemModel *&tb)
     tb = new QStandardItemModel();
     tb->setHorizontalHeaderItem(0, new QStandardItem(QObject::tr("Name")));
     tb->setHorizontalHeaderItem(1, new QStandardItem(QObject::tr("FixCost")));
-    tb->setHorizontalHeaderItem(2, new QStandardItem(QObject::tr("FloatCost")));
+    tb->setHorizontalHeaderItem(2, new QStandardItem(QObject::tr("FloatCost(%)")));
 
     QSqlDatabase db = QSqlDatabase::database("connection");
     QSqlQuery query(db);

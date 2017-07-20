@@ -70,7 +70,7 @@ void Detail::set_policyid(int _policyid)
     }
     insurancelist->sort(1, Qt::AscendingOrder);
     ui->TVPolicycontent->setModel(insurancelist);
-    int sumcost = int((1-discount)*(fixtol + int(floattol*carvalue)));
+    int sumcost = int((1-discount)*(fixtol + int(floattol*carvalue*0.01)));
     ui->LBCost->setText(QString::number(sumcost, 10));
 
 
