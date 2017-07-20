@@ -187,7 +187,7 @@ int Policy::del()
 {
     QSqlDatabase db = QSqlDatabase::database("connection");
     QSqlQuery query(db);
-    query.exec(QString("delete from PolicyList where Id=%1").arg(id));
+    query.exec(QString("update InsuranceList set Work=0 where Id=%1").arg(id));
     return POLICY_DEL_SUCCESS;
 }
 

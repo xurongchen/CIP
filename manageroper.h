@@ -17,7 +17,7 @@ public:
     explicit ManagerOper(QWidget *parent = 0);
     ~ManagerOper();
     void closeEvent(QCloseEvent *);
-    QStandardItemModel *infosend, *inforeci, *insurancelist;
+    QStandardItemModel *infosend, *inforeci, *insurancelist, *insuranceall;
     void get_title(QString word);
 
 private slots:
@@ -68,6 +68,16 @@ private slots:
     void on_PBReciClear_clicked();
 
     void on_PBDele_clicked();
+
+    void on_PBAdd_3_clicked();
+
+    void on_PBLook_2_clicked();
+
+    void on_PBAdd_2_clicked();
+
+    void on_PBLook_clicked();
+
+    void on_PBDel_clicked();
 
 private:
     Ui::ManagerOper *ui;
