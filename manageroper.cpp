@@ -3,6 +3,7 @@
 #include "dboperation.h"
 #include "currentuser.h"
 #include "information.h"
+#include "policyinsurance.h"
 #include "insurance.h"
 #include "pop.h"
 #include <QString>
@@ -144,6 +145,34 @@ ManagerOper::ManagerOper(QWidget *parent) :
     ui->TVInsurance->setContextMenuPolicy(Qt::CustomContextMenu);
 
 
+    insuranceall=NULL;
+    //insuranceall
+    insuranceall_renew(insuranceall);
+    ui->TVInsuranceall->setModel(insuranceall);
+
+    //设置列宽不可变动，即不能通过鼠标拖动增加列宽
+    ui->TVInsuranceall->horizontalHeader()->setResizeMode(0, QHeaderView::Fixed);
+    ui->TVInsuranceall->horizontalHeader()->setResizeMode(1, QHeaderView::Fixed);
+    //ui->TVInsuranceall->horizontalHeader()->setResizeMode(2, QHeaderView::Fixed);
+    ui->TVInsuranceall->horizontalHeader()->setResizeMode(2, QHeaderView::ResizeToContents);
+    //ui->TVInsuranceall->horizontalHeader()->setResizeMode(3, QHeaderView::Fixed);
+    //设置表格的各列的宽度值
+    ui->TVInsuranceall->setColumnWidth(0,100);
+    ui->TVInsuranceall->setColumnWidth(1,50);
+    ui->TVInsuranceall->setColumnWidth(2,50);
+    ui->TVInsuranceall->setColumnWidth(3,0);
+
+    //默认显示行头，如果你觉得不美观的话，我们可以将隐藏
+    ui->TVInsuranceall->verticalHeader()->hide();
+    //设置选中时为整行选中
+    ui->TVInsuranceall->setSelectionBehavior(QAbstractItemView::SelectRows);
+
+    //设置表格的单元为只读属性，即不能编辑
+    ui->TVInsuranceall->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    //如果你用在QTableView中使用右键菜单，需启用该属性
+    ui->TVInsuranceall->setContextMenuPolicy(Qt::CustomContextMenu);
+
+    insuranceget_init();
 }
 
 ManagerOper::~ManagerOper()
@@ -410,4 +439,43 @@ void ManagerOper::on_PBDele_clicked()
 void ManagerOper::get_title(QString word)
 {
     ui->ManTitle->setText(word);
+}
+
+void ManagerOper::on_PBAdd_3_clicked()
+{
+    ui->tabWidget->setCurrentIndex(1);
+}
+
+
+void ManagerOper::on_PBLook_2_clicked()
+{
+    ui->tabWidget->setCurrentIndex(5);
+}
+
+
+void ManagerOper::on_PBAdd_2_clicked()
+{
+    ui->tabWidget->setCurrentIndex(1);
+}
+
+
+void ManagerOper::on_PBLook_clicked()
+{
+    ui->tabWidget->setCurrentIndex(5);
+}
+
+
+void ManagerOper::on_PBDel_clicked()
+{
+    int curRow=ui->TVInsuranceall->currentIndex().row(); //选中行
+    QAbstractItemModel *modessl = ui->TVInsuranceall->model();
+    QModelIndex indextemp = modessl->index(curRow,3);//遍历第一行的所有列,i是你要取值的列的下标
+    //这个是一个单元格的值。tostring()----ok
+    QVariant datatemp = modessl->data(indextemp);
+    Policy i(datatemp.toInt());
+    i.del();
+    insuranceall_renew(insuranceall);
+    ui->TVInsuranceall->setModel(insuranceall);
+    ui->TVInsuranceall->setColumnWidth(3,0);
+
 }

@@ -156,7 +156,7 @@ outline: none}
     <rect>
      <x>50</x>
      <y>110</y>
-     <width>621</width>
+     <width>641</width>
      <height>321</height>
     </rect>
    </property>
@@ -164,7 +164,7 @@ outline: none}
     <string notr="true"/>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>5</number>
    </property>
    <widget class="QWidget" name="tab_3">
     <attribute name="title">
@@ -402,6 +402,32 @@ border-radius:3px;</string>
      <property name="styleSheet">
       <string notr="true">font: 75 12pt &quot;微软雅黑&quot;;
 border-radius:3px;</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="PBAdd_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>80</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>add</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="PBLook">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>140</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>look/del</string>
      </property>
     </widget>
    </widget>
@@ -805,6 +831,60 @@ outline: none}
      </property>
      <property name="text">
       <string>删除消息</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab">
+    <attribute name="title">
+     <string>5</string>
+    </attribute>
+    <widget class="QPushButton" name="PBAdd_3">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>110</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>add</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="PBLook_2">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>170</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>look/del</string>
+     </property>
+    </widget>
+    <widget class="QTableView" name="TVInsuranceall">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>50</y>
+       <width>256</width>
+       <height>192</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="PBDel">
+     <property name="geometry">
+      <rect>
+       <x>510</x>
+       <y>130</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>del</string>
      </property>
     </widget>
    </widget>

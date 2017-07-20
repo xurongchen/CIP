@@ -22,7 +22,8 @@ SOURCES += main.cpp\
     manageroper.cpp \
     pop.cpp \
     insurance.cpp \
-    policyinsurance.cpp
+    policyinsurance.cpp \
+    detail.cpp
 
 HEADERS  += mainwindow.h \
     dbconnect.h \
@@ -35,13 +36,15 @@ HEADERS  += mainwindow.h \
     manageroper.h \
     pop.h \
     insurance.h \
-    policyinsurance.h
+    policyinsurance.h \
+    detail.h
 
 FORMS    += mainwindow.ui \
     adminoper.ui \
     selleroper.ui \
     manageroper.ui \
-    pop.ui
+    pop.ui \
+    detail.ui
 
 RESOURCES += \
     new.qrc

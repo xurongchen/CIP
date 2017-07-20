@@ -175,6 +175,7 @@ SellerOper::SellerOper(QWidget *parent) :
     //如果你用在QTableView中使用右键菜单，需启用该属性
     ui->TVInsuranceall->setContextMenuPolicy(Qt::CustomContextMenu);
 
+    insuranceget_init();
 }
 
 SellerOper::~SellerOper()
