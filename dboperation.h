@@ -31,6 +31,8 @@
 #define POLICY_ADD_ERROR_IMPORTANT_INFO_EMPTY -2
 #define POLICY_DEL_SUCCESS 0
 
+#define POLICY_INSURANCE_ADD_SUCCESS 0
+
 #define RECIDEL 0
 #define SENDDEL 1
 
@@ -92,6 +94,15 @@ public:
     Policy(int _id);
     int add(int& Policyid);
     int del();
+};
+
+class PolicyInsurance
+{
+private:
+    int policyid, insuranceid;
+public:
+    PolicyInsurance(int _policyid,int _insuranceid);
+    int add();
 };
 
 #endif // DBOPERATION_H

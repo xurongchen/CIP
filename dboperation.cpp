@@ -190,3 +190,21 @@ int Policy::del()
     query.exec(QString("delete from PolicyList where Id=%1").arg(id));
     return POLICY_DEL_SUCCESS;
 }
+
+PolicyInsurance::PolicyInsurance(int _policyid, int _insuranceid)
+{
+    policyid = _policyid;
+    insuranceid = _insuranceid;
+}
+
+int PolicyInsurance::add()
+{
+    QSqlDatabase db = QSqlDatabase::database("connection");
+    QSqlQuery query(db);
+    query.exec("select * from PolicyInsuranceRelationList");
+    query.last();
+    int newid = query.value(0).toInt()+1;
+    query.exec(QString("insert into PolicyInsuranceRelationList values( %1, %2, %3 )")
+               .arg(newid).arg(policyid).arg(insuranceid));
+    return POLICY_INSURANCE_ADD_SUCCESS;
+}

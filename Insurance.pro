@@ -21,7 +21,8 @@ SOURCES += main.cpp\
     information.cpp \
     manageroper.cpp \
     pop.cpp \
-    insurance.cpp
+    insurance.cpp \
+    policyinsurance.cpp
 
 HEADERS  += mainwindow.h \
     dbconnect.h \
@@ -33,7 +34,8 @@ HEADERS  += mainwindow.h \
     information.h \
     manageroper.h \
     pop.h \
-    insurance.h
+    insurance.h \
+    policyinsurance.h
 
 FORMS    += mainwindow.ui \
     adminoper.ui \

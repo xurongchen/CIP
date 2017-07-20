@@ -3,6 +3,7 @@
 #include "dboperation.h"
 #include "currentuser.h"
 #include "information.h"
+#include "policyinsurance.h"
 #include <QString>
 #include <string>
 #include <QBitmap>
@@ -10,7 +11,7 @@
 #include <QDebug>
 #include <QPropertyAnimation>
 #include <QMessageBox>
-
+#include <QDate>
 
 SellerOper::SellerOper(QWidget *parent) :
     QDialog(parent),
@@ -118,6 +119,62 @@ SellerOper::SellerOper(QWidget *parent) :
     //如果你用在QTableView中使用右键菜单，需启用该属性
     ui->TVReci->setContextMenuPolicy(Qt::CustomContextMenu);
 
+
+    insuranceget=NULL;
+    //insuranceget
+    insuranceget_renew(insuranceget);
+    ui->TVInsuranceget->setModel(insuranceget);
+
+    //设置列宽不可变动，即不能通过鼠标拖动增加列宽
+    ui->TVInsuranceget->horizontalHeader()->setResizeMode(0, QHeaderView::Fixed);
+    ui->TVInsuranceget->horizontalHeader()->setResizeMode(1, QHeaderView::Fixed);
+    //ui->TVInsuranceget->horizontalHeader()->setResizeMode(2, QHeaderView::Fixed);
+    ui->TVInsuranceget->horizontalHeader()->setResizeMode(2, QHeaderView::ResizeToContents);
+    //ui->TVInsuranceget->horizontalHeader()->setResizeMode(3, QHeaderView::Fixed);
+    //设置表格的各列的宽度值
+    ui->TVInsuranceget->setColumnWidth(0,100);
+    ui->TVInsuranceget->setColumnWidth(1,50);
+    ui->TVInsuranceget->setColumnWidth(2,50);
+    ui->TVInsuranceget->setColumnWidth(3,0);
+
+    //默认显示行头，如果你觉得不美观的话，我们可以将隐藏
+    ui->TVInsuranceget->verticalHeader()->hide();
+    //设置选中时为整行选中
+    ui->TVInsuranceget->setSelectionBehavior(QAbstractItemView::SelectRows);
+
+    //设置表格的单元为只读属性，即不能编辑
+    ui->TVInsuranceget->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    //如果你用在QTableView中使用右键菜单，需启用该属性
+    ui->TVInsuranceget->setContextMenuPolicy(Qt::CustomContextMenu);\
+
+
+    insuranceall=NULL;
+    //insuranceall
+    insuranceall_renew(insuranceall);
+    ui->TVInsuranceall->setModel(insuranceall);
+
+    //设置列宽不可变动，即不能通过鼠标拖动增加列宽
+    ui->TVInsuranceall->horizontalHeader()->setResizeMode(0, QHeaderView::Fixed);
+    ui->TVInsuranceall->horizontalHeader()->setResizeMode(1, QHeaderView::Fixed);
+    //ui->TVInsuranceall->horizontalHeader()->setResizeMode(2, QHeaderView::Fixed);
+    ui->TVInsuranceall->horizontalHeader()->setResizeMode(2, QHeaderView::ResizeToContents);
+    //ui->TVInsuranceall->horizontalHeader()->setResizeMode(3, QHeaderView::Fixed);
+    //设置表格的各列的宽度值
+    ui->TVInsuranceall->setColumnWidth(0,100);
+    ui->TVInsuranceall->setColumnWidth(1,50);
+    ui->TVInsuranceall->setColumnWidth(2,50);
+    ui->TVInsuranceall->setColumnWidth(3,0);
+
+    //默认显示行头，如果你觉得不美观的话，我们可以将隐藏
+    ui->TVInsuranceall->verticalHeader()->hide();
+    //设置选中时为整行选中
+    ui->TVInsuranceall->setSelectionBehavior(QAbstractItemView::SelectRows);
+
+    //设置表格的单元为只读属性，即不能编辑
+    ui->TVInsuranceall->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    //如果你用在QTableView中使用右键菜单，需启用该属性
+    ui->TVInsuranceall->setContextMenuPolicy(Qt::CustomContextMenu);
+
 }
 
 SellerOper::~SellerOper()
@@ -125,6 +182,8 @@ SellerOper::~SellerOper()
     delete ui;
     send_delete(infosend);
     reci_delete(inforeci);
+    insuranceget_delete(insuranceget);
+    insuranceall_delete(insuranceall);
     if(PolicyId!=-1)
     {
         Policy p(PolicyId);
@@ -483,12 +542,81 @@ void SellerOper::on_PBSend_clicked()
     ui->TVReci->setColumnWidth(3,0);
 }
 
-void SellerOper::on_pushButton_clicked()
+
+
+void SellerOper::on_PBSET_clicked()
 {
-
-
-
-
-
+    int rownum = ui->TVInsuranceget->model()->rowCount();
+    if(rownum==0)
+    {
+        QMessageBox::critical(0, "ERROR",
+                    "NO INSURANCE ADD!", QMessageBox::Cancel);
+        return;
+    }
+    for(int row=0;row<rownum;row++)
+    {
+        QAbstractItemModel *modessl = ui->TVInsuranceall->model();
+        QModelIndex indextemp = modessl->index(row,3);
+        QVariant datatemp = modessl->data(indextemp);
+        PolicyInsurance p(PolicyId,datatemp.toInt());
+        p.add();
+    }
     PolicyId = -1;
+    insuranceget_init();
+    insuranceget_renew(insuranceget);
+    ui->TVInsuranceget->setModel(insuranceget);
+    ui->TVInsuranceget->setColumnWidth(3,0);
+    insuranceall_renew(insuranceall);
+    ui->TVInsuranceall->setModel(insuranceall);
+    ui->TVInsuranceall->setColumnWidth(3,0);
+    ui->LECard->clear();
+    ui->LEName->clear();
+    ui->LENum->clear();
+    ui->LEPolicynum->clear();
+    ui->SBPrice->setValue(100000);
+    ui->DSBDiscount->setValue(0);
+    ui->DEStart->setDate(QDate::currentDate());
+    QMessageBox::information(0, "SUCCESS",
+                QString("INSURANCE HAS ADDED!"), QMessageBox::Ok);
+
+    //预留预览
+
+    //
+    ui->tabWidget->setCurrentIndex(0);
+}
+
+void SellerOper::on_PBAdd_clicked()
+{
+    int curRow=ui->TVInsuranceall->currentIndex().row(); //选中行
+    QAbstractItemModel *modessl = ui->TVInsuranceall->model();
+    QModelIndex indextemp = modessl->index(curRow,3);//遍历第一行的所有列,i是你要取值的列的下标
+    //这个是一个单元格的值。tostring()----ok
+    QVariant datatemp = modessl->data(indextemp);
+
+    insuranceget_insert(datatemp.toInt());
+
+    insuranceget_renew(insuranceget);
+    ui->TVInsuranceget->setModel(insuranceget);
+    ui->TVInsuranceget->setColumnWidth(3,0);
+    insuranceall_renew(insuranceall);
+    ui->TVInsuranceall->setModel(insuranceall);
+    ui->TVInsuranceall->setColumnWidth(3,0);
+}
+
+void SellerOper::on_PBDel_clicked()
+{
+    int curRow=ui->TVInsuranceget->currentIndex().row(); //选中行
+    QAbstractItemModel *modessl = ui->TVInsuranceget->model();
+    QModelIndex indextemp = modessl->index(curRow,3);//遍历第一行的所有列,i是你要取值的列的下标
+    //这个是一个单元格的值。tostring()----ok
+    QVariant datatemp = modessl->data(indextemp);
+
+    insuranceget_remove(datatemp.toInt());
+
+    insuranceget_renew(insuranceget);
+    ui->TVInsuranceget->setModel(insuranceget);
+    ui->TVInsuranceget->setColumnWidth(3,0);
+    insuranceall_renew(insuranceall);
+    ui->TVInsuranceall->setModel(insuranceall);
+    ui->TVInsuranceall->setColumnWidth(3,0);
 }
